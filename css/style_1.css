@@ -1005,6 +1005,11 @@ hr {
 	font-size: 18px;
 }
 
+.alert-error {
+	color: red;
+	font-size: 18px;
+}
+
 
 /* - Wrapper */
 

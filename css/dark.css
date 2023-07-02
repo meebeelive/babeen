@@ -157,6 +157,10 @@ body.dark-skin {
 	color: #FFF;
 }
 
+.dark-skin .alert-error {
+	color: #FFF;
+}
+
 /* - Wrapper */
 
 .dark-skin .v-line-block {

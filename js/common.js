@@ -516,12 +516,12 @@ function initCursor() {
 				},
 				success: function(data) {
 					// alert('SUCCESSFUL');
-					$('#cform').fadeOut();
+					// $('#cform').fadeOut();
 					$('.alert-success').delay(1000).fadeIn();
 				},
 				error: function(data) {
-					alert('Something went wrong.');
-					$('#cform').fadeOut();
+					// alert('Something went wrong.');
+					// $('#cform').fadeOut();
 					$('.alert-error').delay(1000).fadeIn();
 				}
 			});
