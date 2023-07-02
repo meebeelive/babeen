@@ -1,0 +1,1081 @@
+<!DOCTYPE html><html lang="en-US"><head>
+
+  <title>Babeen Barish - Product Manager</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="author" content="bslthemes">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost%3A0%2C100%3B0%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C200%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900%7CCaveat%3A400%3B500%3B600%3B700&amp;display=swap" type="text/css" media="all">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto" type="text/css" media="all">
+
+  <!-- CSS STYLES -->
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/splitting.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/swiper.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/animate.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style_1.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/dark.css" type="text/css" media="all">
+
+  <!-- Favicon -->
+	<link rel="shortcut icon" href="meebee-icon.ico" type="image/x-icon">
+	<link rel="icon" href="meebee-icon.ico" type="image/x-icon">
+
+  <script>
+
+    var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<strong class="wrap">'+this.txt + '&nbsp' +'</strong>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #000000}";
+        document.body.appendChild(css);
+    };
+  </script>  
+
+</head>
+
+<body class="home light-skin">
+	<div class="container-page">
+
+		<!-- Preloader -->
+		<div class="preloader">
+			<div class="centrize full-width">
+				<div class="vertical-center">
+					<div class="spinner-logo">
+						<img src="images/logos/meebee-live-logo-2.svg" alt="BabeenBarish">
+						<div class="spinner-dot"></div>
+						<div class="spinner spinner-line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header -->
+		<header class="header">
+			<div class="header__builder">
+        <div class="row">
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            <!-- logo -->
+            <div class="logo">
+              <a href="index.html">
+                <img width="228" height="38" src="images/logos/meebee-live-logo-4.svg" alt>
+              </a>
+            </div>
+
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right">
+
+						<!-- switcher btn -->
+						<a href="#" class="switcher-btn">
+							<span class="sw-before">
+								<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+									<path id="Dark_Theme" data-name="Dark Theme" fill="#000" d="M1759.46,111.076a0.819,0.819,0,0,0-.68.147,8.553,8.553,0,0,1-2.62,1.537,8.167,8.167,0,0,1-2.96.531,8.655,8.655,0,0,1-8.65-8.682,9.247,9.247,0,0,1,.47-2.864,8.038,8.038,0,0,1,1.42-2.54,0.764,0.764,0,0,0-.12-1.063,0.813,0.813,0,0,0-.68-0.148,11.856,11.856,0,0,0-6.23,4.193,11.724,11.724,0,0,0,1,15.387,11.63,11.63,0,0,0,19.55-5.553A0.707,0.707,0,0,0,1759.46,111.076Zm-4.5,6.172a10.137,10.137,0,0,1-14.29-14.145,10.245,10.245,0,0,1,3.38-2.836c-0.14.327-.29,0.651-0.41,1.006a9.908,9.908,0,0,0-.56,3.365,10.162,10.162,0,0,0,10.15,10.189,9.776,9.776,0,0,0,3.49-.62,11.659,11.659,0,0,0,1.12-.473A10.858,10.858,0,0,1,1754.96,117.248Z" transform="translate(-1737 -98)"/>
+								</svg>
+							</span>
+							<span class="sw-after">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22.22" height="22.313" viewBox="0 0 22.22 22.313">
+									<path id="Light_Theme" data-name="Light Theme" fill="#fff" d="M1752.49,105.511a5.589,5.589,0,0,0-3.94-1.655,5.466,5.466,0,0,0-3.94,1.655,5.61,5.61,0,0,0,3.94,9.566,5.473,5.473,0,0,0,3.94-1.653,5.643,5.643,0,0,0,1.65-3.957A5.516,5.516,0,0,0,1752.49,105.511Zm-1.06,6.85a4.1,4.1,0,0,1-5.76,0,4.164,4.164,0,0,1,0-5.788A4.083,4.083,0,0,1,1751.43,112.361Zm7.47-3.662h-2.27a0.768,0.768,0,0,0,0,1.536h2.27A0.768,0.768,0,0,0,1758.9,108.7Zm-10.35,8.12a0.777,0.777,0,0,0-.76.769v2.274a0.777,0.777,0,0,0,.76.767,0.786,0.786,0,0,0,.77-0.767v-2.274A0.786,0.786,0,0,0,1748.55,116.819Zm7.85-.531-1.62-1.624a0.745,0.745,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.625a0.747,0.747,0,0,0,1.06,0A0.759,0.759,0,0,0,1756.4,116.288ZM1748.55,98.3a0.777,0.777,0,0,0-.76.768v2.273a0.778,0.778,0,0,0,.76.768,0.787,0.787,0,0,0,.77-0.768V99.073A0.786,0.786,0,0,0,1748.55,98.3Zm7.88,3.278a0.744,0.744,0,0,0-1.06,0l-1.62,1.624a0.758,0.758,0,0,0,0,1.063,0.745,0.745,0,0,0,1.06,0l1.62-1.624A0.758,0.758,0,0,0,1756.43,101.583Zm-15.96,7.116h-2.26a0.78,0.78,0,0,0-.77.768,0.76,0.76,0,0,0,.77.768h2.26A0.768,0.768,0,0,0,1740.47,108.7Zm2.88,5.965a0.745,0.745,0,0,0-1.06,0l-1.62,1.624a0.759,0.759,0,0,0,0,1.064,0.747,0.747,0,0,0,1.06,0l1.62-1.625A0.758,0.758,0,0,0,1743.35,114.664Zm0-11.457-1.62-1.624a0.744,0.744,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.624a0.745,0.745,0,0,0,1.06,0A0.758,0.758,0,0,0,1743.35,103.207Z" transform="translate(-1737.44 -98.313)"/>
+								</svg>
+							</span>
+						</a>
+
+						<!-- menu btn -->
+						<a href="#" class="menu-btn">
+							<span></span>
+							<span></span>
+						</a>
+
+						<!-- Menu Full Overlay -->
+						<div class="menu-full-overlay">
+							<div class="menu-full-container">
+								<div class="container">
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+											<!-- menu full -->
+											<div class="menu-full">
+												<ul class="menu-full">
+													<li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="index.html">Home</a>
+													</li>
+													<!-- <li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#services-section">Services</a>
+													</li> -->
+													<li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#skills-section">Skills</a>
+													</li>
+													<li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#resume-section">Resume</a>
+													</li>
+													<li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#testimonials-section">Testimonials</a>
+													</li>
+													<!-- <li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#blog-section">Blog</a>
+													</li> -->
+													<li class="menu-item">
+														<a class="splitting-text-anim-2" data-splitting="chars" href="#contact-section">Contact</a>
+													</li>
+												</ul>
+											</div>
+
+											<!-- social -->
+											<div class="menu-social-links">
+                        <a target="_blank" rel="nofollow" href="tel:+971561223772">
+                          <i aria-hidden="true" class="far fa-address-book"></i>
+                        </a>
+                        <a target="_blank" rel="nofollow" href="mailto:babeenb2018@email.iimcal.ac.in">
+                          <i aria-hidden="true" class="far fa-envelope"></i>
+                        </a>
+												<a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
+                          <i aria-hidden="true" class="fab fa-linkedin"></i>
+                        </a>
+                        <a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
+                          <i aria-hidden="true" class="fab fa-instagram"></i>
+                        </a>
+                        <a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
+                          <i aria-hidden="true" class="fab fa-medium"></i>
+                        </a>
+											</div>
+
+											<div class="v-line-block"><span></span></div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="menu-overlay"></div>
+						</div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+		<!-- Wrapper -->
+		<div class="wrapper">
+
+      <!-- Section - Hero Started -->
+			<section class="lui-section lui-section-hero lui-gradient-top" id="started-section">
+  			<div class="container">
+
+          <!-- Hero Started -->
+          <div class="lui-started v-line v-line-left">
+    				<div class="section hero-started">
+    					<div class="content scrolla-element-anim-1 scroll-animate" data-animate="active">
+    						<div class="titles">
+    							<div class="lui-subtitle">
+    								<span> Hello, <b>my name is</b>
+    								</span>
+    							</div>
+    							<h1 class="title splitting-text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
+    								<span>
+    									<b>Babeen</b> Barish </span>
+    							</h1>
+
+                  <!-- Typing test START -->
+                  <div class="label lui-subtitle"> I am a
+                    <a href="" class="typewrite" data-period="2000" data-type='[ "Product Manager", "UX Researcher", "Project Manager", "Blogger", "Freelancer" ]'>
+                      <strong class="wrap"></strong>
+                    </a>
+                  </div>
+                  <!-- Typing test END -->
+    						</div>
+    						<div class="description">
+    							<div>
+    								<p>Currently residing in  Abu Dhabi, UAE. I have rich experience in product management, agile project management, team leadership, and cross-functional collaboration.</p>
+    							</div>
+    							<div class="social-links">
+                    <a target="_blank" rel="nofollow" href="tel:+971561223772">
+                      <i aria-hidden="true" class="far fa-address-book"></i>
+                    </a>
+                    <a target="_blank" rel="nofollow" href="mailto:babeenb2018@email.iimcal.ac.in">
+                      <i aria-hidden="true" class="far fa-envelope"></i>
+                    </a>
+    								<a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
+    									<i aria-hidden="true" class="fab fa-linkedin"></i>
+    								</a>
+    								<a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
+    									<i aria-hidden="true" class="fab fa-instagram"></i>
+    								</a>
+    								<a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
+    									<i aria-hidden="true" class="fab fa-medium"></i>
+    								</a>
+    							</div>
+    						</div>
+    						<div class="bts">
+    							<a target="_blank" href="docs/Babeen_Barish.pdf" download="Babeen_Barish.pdf" class="btn">
+    								<span>Download CV</span>
+    							</a>
+    							<a href="#skills-section" class="btn-lnk"> My Skills </a>
+    						</div>
+    					</div>
+    					<div class="slide scrolla-element-anim-1 scroll-animate" data-animate="active">
+    						<img decoding="async" src="images/profile-babeen.svg" alt="<b>Zoé</b> Miller">
+    						<span class="circle circle-1"></span>
+    						<span class="circle img-1" style="background-image: url(images/pat-1.png);"></span>
+    						<span class="circle img-2" style="background-image: url(images/pat-2.png);"></span>
+    						<span class="circle img-3" style="background-image: url(images/pat-2.png);"></span>
+    						<div class="info-list">
+    							<ul>
+    								<li>
+    									<span class="num">7 <!--<strong>+</strong>-->
+    									</span>
+    									<span class="value">Years of <strong>Experience</strong>
+    									</span>
+    								</li>
+    								<li>
+    									<span class="num">110 <strong>+</strong></span>
+    									<span class="value">Completed <strong>Projects</strong>
+    									</span>
+    								</li>
+    							</ul>
+    						</div>
+    					</div>
+    				</div>
+            <div class="lui-bgtitle">
+              <span> Product Manager </span>
+            </div>
+          </div>
+
+        </div>
+			</section>
+
+      <!-- Section - Skills -->
+      <section class="lui-section lui-gradient-bottom" id="skills-section">
+			<!-- <section class="lui-section lui-gradient-center" id="skills-section"> -->
+
+        <!-- Heading -->
+        <div class="lui-heading">
+          <div class="container">
+
+            <div class="m-titles align-center">
+              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> Professional Skills </span>
+              </h2>
+              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> my <b>Talent</b> </span>
+              </div>
+            </div>
+
+          </div>
+				</div>
+
+        <!-- Skills -->
+				<div class="v-line v-line-left">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+                <div class="skills-items">
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> Jira and Confluence </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>I have 5+ years of experience using jira and confluence for managing team, maintaining structure and carry out documentation for easy process flow. At TRGT Digital, I have implemented 0 to 1 process implementation using Jira and confluence.</p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 99%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">99 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> Product Management </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>Product Management was my forte since 6+ years. I am passionate about product management, and has been involved in designing and developing customer-centric products since the time I have been doing my masters. Now, I am involved in strategic management, ideation, design, development and adoption of technology products in my employer firm.</p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 75%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">99 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+                <div class="skills-items">
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> Cross Team collaboration </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>Communication is key whenever the role of a product manager is considered. Since the past 5+ years, I am able to successfully collaborate with multiple teams, each of who has a role to play in my product. I have successfully collaborated with multiple on-site and off-site teams to come up with largely customer-centric products</p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 75%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">88 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> Scrum and Agile Project Management </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>I have largely worked with Agile project teams with a strong sense of ownership and collaborative processes, going up to designing unique agile processes as per the team need. I have more that 5 years of experience in managing scrum teams, growing and learning more and more about agile and scrum project management methodologies day by day.</p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 70%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">99 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+                <div class="skills-items">
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> SQL </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>My very first job required intensive knowledge of SQL to define and extract fund based reports. Ever since, RDBMS and SQL have proved helpful in all the endeavours I have hence worked on. I use SQL for extracting, and rearranging data for getting insights </p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 90%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">90 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name">
+                      <span> Project Planning </span>
+                    </h6>
+                    <div class="text">
+                      <div>
+                        <p>I have been involved in Cost Benefit analysis and creation of product roadmap for all my project since 5+ years. Skilled in estimation, developing roadmaps and carrying out end-to-end execution. Involved in designing and implementing a process for smooth everyday functioning of tech team and release of 4+ tech products</p>
+                      </div>
+                    </div>
+                    <div class="dots">
+                      <div class="dot" style="width: 95%;">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="value">
+                      <span class="num">80 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="lui-bgtitle">
+              <span> Skills </span>
+            </div>
+
+					</div>
+				</div>
+
+      </section>
+
+      <!-- Section - Works -->
+
+
+      <!-- Section - Resume -->
+			<!-- <section class="lui-section lui-gradient-bottom" id="resume-section"> -->
+      <section class="lui-section lui-gradient-center" id="resume-section">
+      <!-- <section class="lui-section lui-gradient-top" id="resume-section"> -->
+
+        <!-- Heading -->
+        <div class="lui-heading">
+          <div class="container">
+
+            <div class="m-titles align-center">
+              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> Resume </span>
+              </h2>
+              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> my <b>Story</b>
+                </span>
+              </div>
+            </div>
+
+          </div>
+				</div>
+
+        <!-- History -->
+				<div class="v-line v-line-left">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <h5 class="history-title scrolla-element-anim-1 scroll-animate" data-animate="active">
+                  <span> Experience </span>
+                </h5>
+                <div class="history-items">
+                  <div class="history-item lui-collapse-item opened scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn active">
+                      <span> Product Manager </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> TRGT Digital </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> Jun 2022 - <b>Present</b>
+                        </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Product Management * Product Roadmap * Product Planning * Project Management * Jira * Confluence * Atlassian * Business Analysis * Product Requirements * Buisness Requirememt * Business Specification * Cross Team Collabortion * Team Management * Product analysis * Market Research * Competitor Analysis </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Associate Product Manager </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Sentieo </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> May 2021 - Jun 2022 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Product Management * Program Management * Software Development Life Cycle * Agile * Agile Scrum Methodology * Cross Team collaboration * Functional Specification * Aha! * Atlassian Suite</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Associate Lead - Product </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Envestnet Inc. </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> Jun 2019 - May 2021 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p> Business Analytics * Data Analytics * Feature Development * Backlog grooming * Scrum Master * Product Owner * Release Management * Functional Testing * Release notes * Functional Specification Document</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Deputy Manager - Technology & Innovation </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Vedanta Resources Limited </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> May 2018 - May 2019 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Project Management * Business Strategy * Digitalization * Program Management * Osisoft PI * Leadership Development * Corporate Social Responsibility * End to end Project Management * Cross Team collaboration * User Acceptance Testing * Release Management * Change Management </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Product Manager </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> jokamarket.in </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> Jun 2017 - Mar 2018 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Management Trainee - Finance </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Indian Oil Corporation Limited </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> Apr 2017 - May 2017 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> Assistant System Engineer </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Tata Consultancy Services </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> Nov 2014 - Apr 2016 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Java * Struts * Spring * SQL * Agile * Kanban * Reporting * Data Analytics * Descriptive Analytics * IT Services</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+                <h5 class="history-title scrolla-element-anim-1 scroll-animate" data-animate="active">
+                  <span> Education </span>
+                </h5>
+                <div class="history-items">
+                  <div class="history-item lui-collapse-item opened scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn active">
+                      <span> Indian Institute of Management, Calcutta </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Master of Business Administration </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> 2016 - 2018 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>Masters Degree from one of the most sought after B Schools in India, specialised in Management Information System, Economics and Marketing</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <h6 class="name lui-collapse-btn">
+                      <span> University of Kerala </span>
+                    </h6>
+                    <div class="history-content">
+                      <div class="subname">
+                        <span> Bachelor of Technology </span>
+                      </div>
+                      <div class="date lui-subtitle">
+                        <span> 2010 - 2014 </span>
+                      </div>
+                      <div class="text">
+                        <div>
+                          <p>B Tech in Electrical and Electonics engineering from one of the most prestigious Engineering colleges in Kerala, TKM College of Engineering</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="lui-bgtitle">
+              <span> History </span>
+            </div>
+
+					</div>
+				</div>
+
+      </section>
+
+      <!-- Section - Testimonials -->
+			<!-- <section class="lui-section lui-gradient-center" id="testimonials-section"> -->
+      <section class="lui-section lui-gradient-top" id="testimonials-section">
+      <!-- <section class="lui-section lui-gradient-bottom" id="testimonials-section"> -->
+
+        <!-- Heading -->
+        <div class="lui-heading">
+          <div class="container">
+
+            <div class="m-titles align-center">
+              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> Testimonials </span>
+              </h2>
+              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> what <b>Colleagues have to Say</b>
+                </span>
+              </div>
+            </div>
+
+          </div>
+				</div>
+
+        <!-- Testimonials -->
+				<div class="v-line v-line-right">
+          <div class="container">
+
+            <div class="swiper-container js-testimonials scrolla-element-anim-1 scroll-animate" data-animate="active">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="testimonials-item">
+                    <div class="image">
+                      <!-- <img decoding="async" src="images/testi4-2.jpg" alt="Barbara Wilson"> -->
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
+                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text lui-text">
+                      <div>
+                        <p>Babeen was a tremendous addition to our Technology and Innovation group at HZL Vedanta, Her analytical skills along with a balanced approach to various projects were an asset for any company working on complex issues. I was highly appreciative of her ability to tackle projects outside her expertise/comfort zone especially in areas related to mining and processing. Babeen even took the assignment on Zinc-Air batteries, a leading technology, head-on. Babeen is a highly talented individual, calm, diligent and persistent, all the attributes that any company aspire for in this digital era. I wish Babeen all the very best in her future.</p>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <h6 class="name">
+                        <span>Dr. Barun Gorain</span>
+                      </h6>
+                      <div class="author">
+                        <span>Director and CEO, Ore to Metal</span>
+                      </div>
+                      <div class="author">
+                        <span>Ex - CTIO, Hindustan Zinc LTD.</span>
+                      </div>
+                    </div>
+                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="testimonials-item">
+                    <div class="image">
+                      <!-- <img decoding="async" src="images/testi4-1.jpg" alt="Charlie Smith"> -->
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
+                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text lui-text">
+                      <div>
+                        <p>Babeen is provocative thinker and is always full of ideas. Her tenacity to always add a new approach to conventional working has always amazed me. She is hardworking, people sensitive, team player and goal oriented professional. I am certain she will always be an asset to the organization.</p>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <h6 class="name">
+                        <span>Neelesh Chawda</span>
+                      </h6>
+                      <div class="author">
+                        <span>Ex - Head of Milling Excellence,</span>
+                      </div>
+                      <div class="author">
+                        <span>Hindustan Zinc LTD. (Vedanta)</span>
+                      </div>
+                    </div>
+                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="testimonials-item">
+                    <div class="image">
+                      <!-- <img decoding="async" src="images/testi4-4.jpg" alt="Roy Wang"> -->
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
+                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text lui-text">
+                      <div>
+                        <p>Babeen worked with us while at HZL in Vedanta group as an analytics professional. A key learner and excellent team player. Her innovative approach towards problem solving was key to many solutions she delivered while at HZL. Apart from her domain experties she was always keen to learn about the minining and metal processing, a key attribute to have as an analyst. She would always be an asset to every organization she works with.</p>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <h6 class="name">
+                        <span>S Siddiqui</span>
+                      </h6>
+                      <div class="author">
+                        <span>AVP & Head - Digitalization</span>
+                      </div>
+                      <div class="author">
+                        <span>Hindustan Zinc LTD. (Vedanta)</span>
+                      </div>
+                    </div>
+                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="testimonials-item">
+                    <div class="image">
+                      <!-- <img decoding="async" src="images/testi4-3.jpg" alt="Jennifer Smith"> -->
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
+                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text lui-text">
+                      <div>
+                        <p>Babeen and I had worked together in the same team, and it was a pleasure to have worked with her. Though we had individual projects to handle, she would be always be available for discussions and clarifications and that helped a lot during my project analysis. She is a great learner, with her sound domain knowledge being one of her forte. She was also a excellent ideator, and she was able to exhibit this by being part of a winning team, in our company's hackathon competition. Wishing her all success for her future endeavors, and am sure she would be an excellent asset to any company that she is associated with.</p>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <h6 class="name">
+                        <span>Chacko Panicker</span>
+                      </h6>
+                      <div class="author">
+                        <span>Senior Lead - BSA, Envestnet</span>
+                      </div>
+                    </div>
+                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="testimonials-item">
+                    <div class="image">
+                      <!-- <img decoding="async" src="images/testi4-5.jpg" alt="Paul Freeman"> -->
+                      <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
+                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="text lui-text">
+                      <div>
+                        <p>I worked with Babeen in the same team at Sentieo. She is a great team player on whom you can always count upon. While we had demarcated areas of ownership more often than not we would find the lines getting blurred with collaborative ideation and problem solving. I personally rate her communication and project management skills very highly. Babeen exhibits the perfect blend of taking up responsibilities in her expertise domain and not shying away from challenging assignments involving steep learning curves. The confidence she exuded was an inspiration for the whole team. I am very confident that Babeen would be a very valuable asset for any organization she associates herself with and I wish her the best.</p>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <h6 class="name">
+                        <span>Dushyant Sankaralingam</span>
+                      </h6>
+                      <div class="author">
+                        <span>Product Manager, Sentieo</span>
+                      </div>
+                    </div>
+                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="lui-bgtitle">
+              <span> Reviews </span>
+            </div>
+
+					</div>
+				</div>
+
+      </section>
+			
+
+      <!-- Section - Contacts -->
+      <!-- <section class="lui-section lui-gradient-top" id="contact-section"> -->
+			<section class="lui-section lui-gradient-bottom" id="contact-section">
+
+        <!-- Heading -->
+        <div class="lui-heading">
+          <div class="container">
+
+            <div class="m-titles align-center">
+              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> Contact Me </span>
+              </h2>
+              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+                <span> Let’s <b>Talk About Ideas</b>
+                </span>
+              </div>
+            </div>
+
+          </div>
+				</div>
+
+        <!-- Contact -->
+				<div class="lui-contacts v-line v-line-left">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+
+                <div class="numbers-items">
+                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <div class="icon">
+                      <i aria-hidden="true" class="far fa-map"></i>
+                    </div>
+                    <div class="title">
+                      <span> Address </span>
+                    </div>
+                    <div class="lui-text">
+                      <span> Al Zeina, Al Raha Beach, Abu Dhabi, U.A.E. </span>
+                    </div>
+                  </div>
+                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <div class="icon">
+                      <i aria-hidden="true" class="far fa-user"></i>
+                    </div>
+                    <div class="title">
+                      <span> Visa & Availability </span>
+                    </div>
+                    <div class="lui-text">
+                      <span> Resident Visa | Available Right Now </span>
+                    </div>
+                  </div>
+                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <div class="icon">
+                      <i aria-hidden="true" class="far fa-envelope"></i>
+                    </div>
+                    <div class="title">
+                      <span> Email </span>
+                    </div>
+                    <div class="lui-text">
+                      <span> babeenb2018@email.iimcal.ac.in </span>
+                    </div>
+                  </div>
+                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+                    <div class="icon">
+                      <i aria-hidden="true" class="far fa-address-book"></i>
+                    </div>
+                    <div class="title">
+                      <span> Phone </span>
+                    </div>
+                    <div class="lui-text">
+                      <span> +971 561 - 22 - 3772 </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+
+                <div class="contacts-form scrolla-element-anim-1 scroll-animate" data-animate="active">
+                  <div class="bg-img" style="background-image: url(images/pat-1.png);"></div>
+                  <div class="contacts-form">
+                    <form id="cform" method="post">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                          <div class="group">
+                            <label>
+                              Your Full Name <b>*</b>
+                              <input type="text" name="name">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                          <div class="group">
+                            <label>
+                              Your Email Address <b>*</b>
+                              <input type="email" name="email">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div class="group">
+                            <label>
+                              Your Subject <b>*</b>
+                              <input type="text" name="subject">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div class="group">
+                            <label>
+                              Your Message <b>*</b>
+                              <textarea name="message"></textarea>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-right">
+                          <div class="terms-label">* Accept the terms and conditions.</div>
+                          <a href="#" class="btn" onclick="$('#cform').submit(); return false;">
+                            <span>Send Message</span>
+                          </a>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="alert-success" style="display: none;">
+                      <p>Thanks, your message is sent successfully.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="lui-bgtitle">
+              <span> Contact Me </span>
+            </div>
+
+					</div>
+				</div>
+
+      </section>
+
+		</div>
+
+		<!-- Footer -->
+		<div class="footer">
+			<div class="footer__builder">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+              <div class="social-links scrolla-element-anim-1 scroll-animate" data-animate="active">
+                <a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
+                  <i aria-hidden="true" class="fab fa-linkedin"></i>
+                </a>
+                <a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
+                  <i aria-hidden="true" class="fab fa-instagram"></i>
+                </a>
+                <a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
+                  <i aria-hidden="true" class="fab fa-medium"></i>
+                </a>
+              </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+              <div class="copyright-text align-center scrolla-element-anim-1 scroll-animate" data-animate="active">
+                © 2023 <strong>MeeBee.live</strong>. All rights reserved
+              </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+              <div class="copyright-text align-right scrolla-element-anim-1 scroll-animate" data-animate="active">
+                Developed by <strong>MeeBee.live</strong>
+              </div>
+
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- cursor -->
+	<div class="cursor"></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/splitting.js"></script>
+  <script src="js/jarallax.min.js"></script>
+  <script src="js/magnific-popup.js"></script>
+  <script src="js/imagesloaded.pkgd.js"></script>
+  <script src="js/isotope.pkgd.js"></script>
+  <script src="js/jquery.scrolla.js"></script>
+  <script src="js/skrollr.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+  <script src="js/typed.js"></script>
+  <script src="js/common.js"></script>
+
+
+  <!-- bslthemes.com buttons assets begin -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <!-- bslthemes.com buttons assets end -->
+
+
+
+</body></html>
