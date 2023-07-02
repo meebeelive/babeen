@@ -502,11 +502,14 @@ function initCursor() {
 				// url: 'mailer/feedback.php',
 				// url: 'mailer/contact-form-handler.php',
 				url: 'mailer/emailHandler.php',
-				type: 'post',
-				dataType: 'json',
+        type: 'POST',
+        async: true,
+        datatype: 'json',
+        cache: true,
+        global: false,
 				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&subject='+ $("#cform").find('input[name="subject"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
 				beforeSend: function() {
-
+					alert('SENDING NOW');
 				},
 				complete: function() {
 					alert('COMPLETED');
@@ -517,8 +520,7 @@ function initCursor() {
 					$('.alert-success').delay(1000).fadeIn();
 				},
 				error: function(data) {
-					alert('ERROR');
-					console.log(data);
+					alert('ERROR: ' + data);
 				}
 			});
 		}
