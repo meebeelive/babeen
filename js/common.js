@@ -509,18 +509,20 @@ function initCursor() {
         global: false,
 				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&subject='+ $("#cform").find('input[name="subject"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
 				beforeSend: function() {
-					alert('SENDING NOW');
+					// alert('SENDING NOW');
 				},
 				complete: function() {
-					alert('COMPLETED');
+					// alert('COMPLETED');
 				},
 				success: function(data) {
-					alert('SUCCESSFUL');
+					// alert('SUCCESSFUL');
 					$('#cform').fadeOut();
 					$('.alert-success').delay(1000).fadeIn();
 				},
 				error: function(data) {
-					alert('ERROR: ' + data);
+					alert('Something went wrong.');
+					$('#cform').fadeOut();
+					$('.alert-error').delay(1000).fadeIn();
 				}
 			});
 		}
