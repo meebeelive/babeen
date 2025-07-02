@@ -1,1084 +1,991 @@
-<!DOCTYPE html><html lang="en-US"><head>
-
-  <title>Babeen Barish - Product Manager</title>
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="HandheldFriendly" content="true">
-  <meta name="author" content="bslthemes">
-
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost%3A0%2C100%3B0%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C200%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900%7CCaveat%3A400%3B500%3B600%3B700&amp;display=swap" type="text/css" media="all">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto" type="text/css" media="all">
-
-  <!-- CSS STYLES -->
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/splitting.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/swiper.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/animate.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/style_1.css" type="text/css" media="all">
-  <link rel="stylesheet" href="css/dark.css" type="text/css" media="all">
-
-  <!-- Favicon -->
-	<link rel="shortcut icon" href="meebee-icon.ico" type="image/x-icon">
-	<link rel="icon" href="meebee-icon.ico" type="image/x-icon">
-
-  <script>
-
-    var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
-
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
-
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babeen Barish - Product Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (for badges) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS Variables for Earthy Theme */
+        :root {
+            --color-primary-green: #548C7B; /* Darker main green (Moss/Forest) */
+            --color-accent-green: #8FBC8F; /* Lighter accent green (Dark Sea Green) */
+            --color-background-light: #F8F5EC; /* Creamy light background */
+            --color-text-dark: #3E3E3E; /* Dark charcoal text */
+            --color-card-background: #FFFFFF; /* Clean white for cards */
+            --color-border: #D1D1C7; /* Muted gray-green border */
+            --color-link: #548C7B; /* Link color */
+            --color-hover-link: #3F6B5C; /* Darker green on link hover */
+            --color-subtle-bg-tint: #EEF4ED; /* Very light green tint for testimonials */
         }
-
-        this.el.innerHTML = '<strong class="wrap">'+this.txt + '&nbsp' +'</strong>';
-
-        var that = this;
-        var delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) { delta /= 2; }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
+        /* Custom Styles for Babeen Barish's Portfolio - Earthy Theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+            overflow-wrap: break-word; /* Ensures long words/URLs break to prevent horizontal overflow */
         }
-
-        setTimeout(function() {
-        that.tick();
-        }, delta);
-    };
-
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
+        /* Header changes for end-to-end banner */
+        header {
+            border-radius: 0; /* Remove rounded corners for full width */
+            padding-left: 1rem; /* Add some default internal padding */
+            padding-right: 1rem;
+        }
+        /* New inner container for header content to keep it aligned */
+        .header-content-inner {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem; /* Adjust padding as needed for spacing */
+        }
+        /* Main layout container for content below the header */
+        .main-layout-container {
+            width: 100%; /* Make it span full width */
+            padding: 1rem; /* Keep standard padding for inner content from screen edges */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background-color: var(--color-card-background);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px) rotateZ(0.5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* Slightly stronger hover shadow */
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--color-accent-green), var(--color-primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-heading {
+            color: var(--color-primary-green);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-accent-green), var(--color-primary-green));
+            border-radius: 2px;
+        }
+        /* Tab Navigation Styles */
+        .tab-nav {
+            display: flex;
+            justify-content: center; /* Center the tabs */
+            margin-top: 2rem; /* Added margin to separate from header content */
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--color-border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .tab-button {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 1.1rem;
+            /* Changed color for better visibility on dark background */
+            color: rgba(255, 255, 255, 0.7); /* Light white, slightly transparent */
+            font-weight: 500; /* Slightly less bold for inactive */
+            position: relative;
+            transition: color 0.3s ease, font-weight 0.3s ease;
+            white-space: nowrap;
+        }
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            /* Changed underline color for better visibility */
+            background-color: var(--color-background-light); /* Creamy white for strong contrast */
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .tab-button.active {
+            /* Changed color for active state */
+            color: white; /* Pure white for active */
+            font-weight: 700; /* Bolder for active */
+        }
+        .tab-button.active::after {
+            transform: scaleX(1);
+        }
+        .tab-content {
+            display: none; /* Initially hide all tab content */
+        }
+        .tab-content.active {
+            display: block; /* Show active tab content */
+        }
+        
+        /* Styles for Read More/Less - UPDATED FOR SCROLLING */
+        .project-description {
+            transition: max-height 0.7s ease-in-out; /* Smooth transition for height change */
+        }
+        .project-description:not(.collapsed) {
+            /*max-height: 70vh;*/ /* Disabled to show full content. Set a reasonable max height for expanded sections */
+            overflow-y: auto; /* Add a vertical scrollbar if the content inside is taller than max-height */
+        }
+        .project-description.collapsed {
+            max-height: 70px; /* The height of the section when it's collapsed */
+            overflow: hidden; /* Hide the overflowing content and scrollbar */
+            position: relative;
+        }
+        .project-description.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0; /* Ensure the gradient covers the full width */
+            height: 40px;
+            background: linear-gradient(to top, var(--color-card-background), transparent);
+        }
+        .read-more-button {
+            background-color: var(--color-primary-green);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            margin-top: 1rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .read-more-button:hover {
+            background-color: var(--color-hover-link);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* Fade-in animation on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: levelUpBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes levelUpBounce {
+            0% { transform: scale(0.98); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+        .profile-photo {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.5), 0 0 0 12px rgba(255, 255, 255, 0.3);
+        }
+        .text-accent-teal { color: var(--color-primary-green); } /* Updated to primary green */
+        .bg-subtle-teal { background-color: var(--color-subtle-bg-tint); } /* Updated to subtle green tint */
+        .link-color { color: var(--color-link); }
+        .link-color:hover { color: var(--color-hover-link); }
+        .skill-item { display: flex; align-items: center; margin-bottom: 0.75rem; }
+        .skill-name { min-width: 150px; font-weight: 500; color: var(--color-text-dark); }
+        .skill-bar-container { flex-grow: 1; height: 12px; background-color: var(--color-border); border-radius: 6px; overflow: hidden; margin-left: 1rem; }
+        .skill-bar { height: 100%; background-image: linear-gradient(to right, var(--color-accent-green), var(--color-primary-green)); border-radius: 6px; transition: width 1s ease-out; width: 0%; }
+        .achievement-badge { display: inline-flex; align-items: center; background-color: var(--color-primary-green); color: white; padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; margin-left: 0.5rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); animation: bounceIn 0.8s ease-out; }
+        .achievement-badge i { margin-right: 0.3rem; }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        .quest-button { background: linear-gradient(to right, var(--color-accent-green), var(--color-primary-green)); color: white; padding: 1rem 2rem; border-radius: 0.75rem; font-weight: 700; font-size: 1.25rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); box-shadow: 0 5px 15px rgba(0,0,0,0.2), inset 0 0 0 2px rgba(255,255,255,0.3); transition: all 0.3s ease-in-out; cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; }
+        .quest-button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 0 3px rgba(255,255,255,0.4); background: linear-gradient(to right, var(--color-primary-green), var(--color-accent-green)); }
+        .quest-button i { margin-right: 0.75rem; }
+        /* Image Gallery - now responsive for smaller screens */
+        .image-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(1, 1fr); /* Default to 1 column on small screens */
+            gap: 1rem; 
+            margin-top: 1.5rem; 
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on small/medium screens */
             }
         }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #000000}";
-        document.body.appendChild(css);
-    };
-  </script>  
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .image-gallery {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+            }
+        }
+        .image-wrapper { position: relative; width: 100%; padding-bottom: 75%; /* 4:3 Aspect Ratio */ overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+        .image-wrapper:hover { transform: scale(1.05) rotateZ(-2deg); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); }
+        .image-gallery img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; }
+        /* Testimonial Section - now stacks vertically on small screens */
+        .testimonial-container {
+            display: flex;
+            flex-direction: column; /* Stack vertically by default */
+            gap: 1.5rem; /* Space between stacked cards */
+        }
+        .testimonial-card {
+            flex: 1 1 100%; /* Allow cards to grow and shrink */
+            box-sizing: border-box;
+        }
+        @media (min-width: 768px) { /* md breakpoint - two columns */
+            .testimonial-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+            .testimonial-card { 
+                flex-basis: calc(50% - 0.75rem);
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint - three columns */
+            .testimonial-card { 
+                flex-basis: calc(33.33% - 1rem);
+            }
+        }
+        /* Timeline specific styles */
+        .timeline-container-wrapper { /* New wrapper for the timeline tab */
+             padding: 1rem;
+             background-color: var(--color-card-background);
+             border-radius: 0.75rem;
+             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px; /* Space for the line and dots */
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px; /* Align with the start of the padding-left */
+            top: 0;
+            bottom: 0;
+            width: 2px; /* Thinner line */
+            background-color: var(--color-border);
+            border-radius: 1px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(0,0,0,0.1); /* Subtle separator */
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px; /* Adjusted to align with the new thinner line */
+            top: 5px; /* Adjust vertically */
+            width: 14px; /* Smaller dot size */
+            height: 14px; /* Smaller dot size */
+            background-color: var(--color-primary-green);
+            border-radius: 50%;
+            border: 3px solid var(--color-card-background); /* Use card background for contrast */
+            z-index: 10;
+            box-shadow: 0 0 0 2px var(--color-accent-green); /* Subtle glow */
+        }
+        .timeline-item-title {
+            font-weight: 600;
+            color: var(--color-primary-green);
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+        .timeline-item-period {
+            font-size: 0.9rem;
+            color: var(--color-text-dark);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-item-description {
+            font-size: 0.9rem; /* Slightly larger for readability */
+            color: #555; /* Muted text color */
+            line-height: 1.5; /* Improved line spacing */
+        }
+        /* Styling for nested project cards */
+        .nested-project-card {
+            background-color: #fdfcf7; /* Slightly different bg */
+            border: 1px solid var(--color-border);
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1rem; /* p-4 */
+            margin-top: 1rem; /* mt-4 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
 
+    </style>
 </head>
+<body class="antialiased">
 
-<body class="home light-skin">
-	<div class="container-page">
-
-		<!-- Preloader -->
-		<div class="preloader">
-			<div class="centrize full-width">
-				<div class="vertical-center">
-					<div class="spinner-logo">
-						<img src="images/logos/meebee-live-logo-2.svg" alt="BabeenBarish">
-						<div class="spinner-dot"></div>
-						<div class="spinner spinner-line"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Header -->
-		<header class="header">
-			<div class="header__builder">
-        <div class="row">
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-
-            <!-- logo -->
-            <div class="logo">
-              <a href="index.html">
-                <img width="228" height="38" src="images/logos/meebee-live-logo-4.svg" alt>
-              </a>
+    <!-- Header Section (Full-width banner) -->
+    <header class="w-full text-center py-8 mb-8 bg-gradient-to-r from-[var(--color-accent-green)] to-[var(--color-primary-green)] shadow-lg text-white">
+        <div class="header-content-inner">
+            <div class="flex justify-center mb-4">
+                <img src="./images/profilePicture.jpg" alt="Babeen Barish" class="w-48 h-48 rounded-full border-4 border-white shadow-md object-cover profile-photo" onerror="this.onerror=null;this.src='https://placehold.co/192x192/F8F5EC/3E3E3E?text=BB';">
             </div>
-
-          </div>
-          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right">
-
-						<!-- switcher btn -->
-						<a href="#" class="switcher-btn">
-							<span class="sw-before">
-								<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
-									<path id="Dark_Theme" data-name="Dark Theme" fill="#000" d="M1759.46,111.076a0.819,0.819,0,0,0-.68.147,8.553,8.553,0,0,1-2.62,1.537,8.167,8.167,0,0,1-2.96.531,8.655,8.655,0,0,1-8.65-8.682,9.247,9.247,0,0,1,.47-2.864,8.038,8.038,0,0,1,1.42-2.54,0.764,0.764,0,0,0-.12-1.063,0.813,0.813,0,0,0-.68-0.148,11.856,11.856,0,0,0-6.23,4.193,11.724,11.724,0,0,0,1,15.387,11.63,11.63,0,0,0,19.55-5.553A0.707,0.707,0,0,0,1759.46,111.076Zm-4.5,6.172a10.137,10.137,0,0,1-14.29-14.145,10.245,10.245,0,0,1,3.38-2.836c-0.14.327-.29,0.651-0.41,1.006a9.908,9.908,0,0,0-.56,3.365,10.162,10.162,0,0,0,10.15,10.189,9.776,9.776,0,0,0,3.49-.62,11.659,11.659,0,0,0,1.12-.473A10.858,10.858,0,0,1,1754.96,117.248Z" transform="translate(-1737 -98)"/>
-								</svg>
-							</span>
-							<span class="sw-after">
-								<svg xmlns="http://www.w3.org/2000/svg" width="22.22" height="22.313" viewBox="0 0 22.22 22.313">
-									<path id="Light_Theme" data-name="Light Theme" fill="#fff" d="M1752.49,105.511a5.589,5.589,0,0,0-3.94-1.655,5.466,5.466,0,0,0-3.94,1.655,5.61,5.61,0,0,0,3.94,9.566,5.473,5.473,0,0,0,3.94-1.653,5.643,5.643,0,0,0,1.65-3.957A5.516,5.516,0,0,0,1752.49,105.511Zm-1.06,6.85a4.1,4.1,0,0,1-5.76,0,4.164,4.164,0,0,1,0-5.788A4.083,4.083,0,0,1,1751.43,112.361Zm7.47-3.662h-2.27a0.768,0.768,0,0,0,0,1.536h2.27A0.768,0.768,0,0,0,1758.9,108.7Zm-10.35,8.12a0.777,0.777,0,0,0-.76.769v2.274a0.777,0.777,0,0,0,.76.767,0.786,0.786,0,0,0,.77-0.767v-2.274A0.786,0.786,0,0,0,1748.55,116.819Zm7.85-.531-1.62-1.624a0.745,0.745,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.625a0.747,0.747,0,0,0,1.06,0A0.759,0.759,0,0,0,1756.4,116.288ZM1748.55,98.3a0.777,0.777,0,0,0-.76.768v2.273a0.778,0.778,0,0,0,.76.768,0.787,0.787,0,0,0,.77-0.768V99.073A0.786,0.786,0,0,0,1748.55,98.3Zm7.88,3.278a0.744,0.744,0,0,0-1.06,0l-1.62,1.624a0.758,0.758,0,0,0,0,1.063,0.745,0.745,0,0,0,1.06,0l1.62-1.624A0.758,0.758,0,0,0,1756.43,101.583Zm-15.96,7.116h-2.26a0.78,0.78,0,0,0-.77.768,0.76,0.76,0,0,0,.77.768h2.26A0.768,0.768,0,0,0,1740.47,108.7Zm2.88,5.965a0.745,0.745,0,0,0-1.06,0l-1.62,1.624a0.759,0.759,0,0,0,0,1.064,0.747,0.747,0,0,0,1.06,0l1.62-1.625A0.758,0.758,0,0,0,1743.35,114.664Zm0-11.457-1.62-1.624a0.744,0.744,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.624a0.745,0.745,0,0,0,1.06,0A0.758,0.758,0,0,0,1743.35,103.207Z" transform="translate(-1737.44 -98.313)"/>
-								</svg>
-							</span>
-						</a>
-
-						<!-- menu btn -->
-						<a href="#" class="menu-btn">
-							<span></span>
-							<span></span>
-						</a>
-
-						<!-- Menu Full Overlay -->
-						<div class="menu-full-overlay">
-							<div class="menu-full-container">
-								<div class="container">
-									<div class="row">
-										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-											<!-- menu full -->
-											<div class="menu-full">
-												<ul class="menu-full">
-													<li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="index.html">Home</a>
-													</li>
-													<!-- <li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#services-section">Services</a>
-													</li> -->
-													<li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#skills-section">Skills</a>
-													</li>
-													<li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#resume-section">Resume</a>
-													</li>
-													<li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#testimonials-section">Testimonials</a>
-													</li>
-													<!-- <li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#blog-section">Blog</a>
-													</li> -->
-													<li class="menu-item">
-														<a class="splitting-text-anim-2" data-splitting="chars" href="#contact-section">Contact</a>
-													</li>
-												</ul>
-											</div>
-
-											<!-- social -->
-											<div class="menu-social-links">
-                        <a target="_blank" rel="nofollow" href="tel:+971561223772">
-                          <i aria-hidden="true" class="far fa-address-book"></i>
-                        </a>
-                        <a target="_blank" rel="nofollow" href="mailto:babeenb2018@email.iimcal.ac.in">
-                          <i aria-hidden="true" class="far fa-envelope"></i>
-                        </a>
-												<a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
-                          <i aria-hidden="true" class="fab fa-linkedin"></i>
-                        </a>
-                        <a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
-                          <i aria-hidden="true" class="fab fa-instagram"></i>
-                        </a>
-                        <a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
-                          <i aria-hidden="true" class="fab fa-medium"></i>
-                        </a>
-											</div>
-
-											<div class="v-line-block"><span></span></div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="menu-overlay"></div>
-						</div>
-
-          </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-2">Babeen Barish</h1>
+            <p class="text-xl sm:text-2xl font-medium">Senior Product Manager (Fintech, Adtech, Martech)</p>
+            <div class="mt-4 flex justify-center space-x-4 text-gray-200 flex-wrap">
+                <span>+91 8078552204</span>
+                <span class="hidden sm:inline">•</span>
+                <span>+971 561223772</span>
+                <span class="hidden sm:inline">•</span>
+                <a href="mailto:babeenb@gmail.com" class="hover:text-white transition duration-300">babeenb@gmail.com</a>
+                <span class="hidden sm:inline">•</span>
+                <a href="https://www.linkedin.com/in/babeenbarish/" target="_blank" class="hover:text-white transition duration-300">LinkedIn</a>
+            </div>
+            <p class="text-lg text-gray-200 mt-2 font-light">Based in Thiruvananthapuram, Kerala, India and Abu Dhabi, UAE</p>
+            <!-- Download CV Button -->
+            <div class="mt-6">
+                <a href="./docs/Babeen_Barish_Product_CV.pdf" download="Babeen_Barish_CV.pdf" target="_blank" class="inline-block bg-white text-[var(--color-primary-green)] font-bold py-2 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+            <!-- Tab Navigation (UPDATED ORDER) -->
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="openTab(event, 'about')">About Me</button>
+                <button class="tab-button" onclick="openTab(event, 'timeline')">Career Timeline</button>
+                <button class="tab-button" onclick="openTab(event, 'product')">Product Portfolio</button>
+                <button class="tab-button" onclick="openTab(event, 'career')">Other Ventures & Internships</button>
+            </div>
         </div>
-      </div>
     </header>
 
-		<!-- Wrapper -->
-		<div class="wrapper">
+    <div class="main-layout-container">
+            <!-- Main Content Section (Full Width) -->
+            <main>
+                <!-- Tab Content Panels (UPDATED ORDER) -->
+                
+                <!-- Tab 1: About Me (NOW FIRST) -->
+                <div id="about" class="tab-content active">
+                     <!-- Introduction Section -->
+                    <section class="card fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-4">Welcome</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Hi, I'm Babeen — a Senior Product Manager with 8+ years of experience delivering impactful digital products across Fintech, Adtech, and Martech. I’m passionate about using data and strategy to drive results that matter. Off the clock, I’m a RYT200-certified yoga teacher exploring the power of breathwork and meditation. I also find joy in glass painting, gardening, and cooking. I proudly support small businesses through my own ventures: a pickle brand and an online plant store, blending creativity, sustainability, and heart. 
+                        </p>
+                    </section>
+                    <!-- Education Section -->
+                    <section class="card fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-4">Education</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Master of Business Administration (MBA)</strong> from <strong class="text-accent-teal">Indian Institute of Management Calcutta (IIMC)</strong></li>
+                            <li><strong>Bachelor of Technology in Electrical & Electronics Engineering</strong> from <strong class="text-accent-teal">University of Kerala</strong></li>
+                        </ul>
+                    </section>
+                     <!-- Skills Section -->
+                    <section class="card fade-in-section" id="skills-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">Skills & Proficiencies</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                            <div class="skill-item"><span class="skill-name">Product Strategy</span><div class="skill-bar-container"><div class="skill-bar" data-level="95%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">Data Analysis & SQL</span><div class="skill-bar-container"><div class="skill-bar" data-level="85%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">Agile/Scrum</span><div class="skill-bar-container"><div class="skill-bar" data-level="98%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">JIRA & Confluence</span><div class="skill-bar-container"><div class="skill-bar" data-level="95%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">Roadmapping</span><div class="skill-bar-container"><div class="skill-bar" data-level="90%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">UX/UI Wireframing</span><div class="skill-bar-container"><div class="skill-bar" data-level="80%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">Stakeholder Management</span><div class="skill-bar-container"><div class="skill-bar" data-level="92%"></div></div></div>
+                            <div class="skill-item"><span class="skill-name">AI Product Dev</span><div class="skill-bar-container"><div class="skill-bar" data-level="88%"></div></div></div>
+                        </div>
+                    </section>
+                     <!-- Certifications Section -->
+                    <section class="card fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-4">Certifications and Licenses</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Registered Yoga Teacher (Yoga Alliance - RYT 200), July 2024</li>
+                            <li>ChatGPT Prompt Engineering, Class Central, Mar 2024</li>
+                            <li>Scrum Master, and Product Owner, Envestnet 2019</li>
+                            <li>Lean Six Sigma Certification, KPMG, 2018</li>
+                            <li>Business Analysis, KPMG, 2017</li>
+                            <li>Registered Yoga Teacher (Yoga Alliance - RYT 200), July 2024</li>
+                        </ul>
+                    </section>
+                    <!-- Testimonials Section -->
+                    <section class="mb-8 fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">What Others Say</h2>
+                        <div class="testimonial-container">
+                            <!-- Testimonial 1 -->
+                            <div class="card bg-subtle-teal testimonial-card">
+                                <p class="text-lg italic text-gray-800 mb-4 whitespace-normal">"I worked with Babeen in the same team at Sentieo. She is a great team player on whom you can always count upon. While we had demarcated areas of ownership more often than not we would find the lines getting blurred with collaborative ideation and problem solving. I personally rate her communication and project management skills very highly. Babeen exhibits the perfect blend of taking up responsibilities in her expertise domain and not shying away from challenging assignments involving steep learning curves. The confidence she exuded was an inspiration for the whole team. I am very confident that Babeen would be a very valuable asset for any organization she associates herself with and I wish her the best."</p>
+                                <p class="font-semibold text-accent-teal text-right">- Sankaralingam Dushyant,<br>Ex-Product Manager at Sentieo, Alphasense Company</p>
+                            </div>
+                            <!-- Testimonial 2 -->
+                            <div class="card bg-subtle-teal testimonial-card">
+                                <p class="text-lg italic text-gray-800 mb-4 whitespace-normal">"Babeen is an excellent product manager who knows how to drive value through the product all the while making an engineer’s job easier. She played a pivotal role in the GTM strategy at TRGT and helped us deliver features that actually mattered to the end user. She is always up for experimenting with things all the while making conscious decisions to reduce associated risks or edge cases which might come up."</p>
+                                <p class="font-semibold text-accent-teal text-right">- Aman Singh,<br>Senior Software Engineer at GAIN (Previously TRGT Digital)</p>
+                            </div>
+                            <!-- Testimonial 3 -->
+                            <div class="card bg-subtle-teal testimonial-card">
+                                 <p class="text-lg italic text-gray-800 mb-4 whitespace-normal">"Babeen was a tremendous addition to our Technology and Innovation group at HZL Vedanta, Her analytical skills along with a balanced approach to various projects were an asset for any company working on complex issues. I was highly appreciative of her ability to tackle projects outside her expertise/comfort zone especially in areas related to mining and processing. Babeen even took the assignment on Zinc-Air batteries, a leading technology, head-on. Babeen is a highly talented individual, calm, diligent and persistent, all the attributes that any company aspire for in this digital era. I wish Babeen all the very best in her future. "</p>
+                                <p class="font-semibold text-accent-teal text-right">- Barun Gorain,<br> EX-CTIO, Hindustan Zinc Limited, Vedanta Resources Plc</p>
+                            </div>
+                        </div>
+                         <p class="text-center text-gray-600 mt-4">More recommendations available on my <a href="https://www.linkedin.com/in/babeenbarish/" target="_blank" class="link-color hover:underline">LinkedIn profile</a>.</p>
+                    </section>
+                    <!-- Personal Interests Section -->
+                    <section class="card fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-4">Personal Interests</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            When I'm not immersed in product development, I'm passionate about traveling, exploring new cultures, cooking, and am a RYT 200 Registered Yoga Teacher since July 2024. I also enjoy expressing my creativity through glass painting, nurturing my pickle business, and managing an online plant store. I love going on jungle safaris and always seek new places to explore.
+                        </p>
+                        <div class="image-gallery">
+                            <div class="image-wrapper"><img src="./images/nature 3.jpg" alt="Yoga Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A2BE99/548C7B?text=Yoga';"></div>
+                            <div class="image-wrapper"><img src="./images/nature1.jpg" alt="Travel Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/8FBC8F/3E3E3E?text=Travel';"></div>
+                            <div class="image-wrapper"><img src="./images/nature2.jpg" alt="Cricket Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/548C7B/F8F5EC?text=Cricket';"></div>
+                            <div class="image-wrapper"><img src="./images/Yoga4.jpg" alt="Glass Painting Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/3F6B5C/A2BE99?text=Glass+Painting';"></div>
+                            <div class="image-wrapper"><img src="./images/Yoga1.jpg" alt="Pickle Business Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/8FBC8F/3F6B5C?text=Pickle+Business';"></div>
+                            <div class="image-wrapper"><img src="./images/Yoga2.jpg" alt="Online Plant Store Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/D1D1C7/548C7B?text=Plant+Store';"></div>
+                            <div class="image-wrapper"><img src="./images/IMG_6149.heic" alt="Reading Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F8F5EC/A2BE99?text=Reading';"></div>
+                            <div class="image-wrapper"><img src="./images/GlassPainting1.jpg" alt="Jungle Safari Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A2BE99/F8F5EC?text=Safari';"></div>
+                            <div class="image-wrapper"><img src="./images/GlassPainting2.jpg" alt="Exploring Places Activity" onerror="this.onerror=null;this.src='https://placehold.co/400x300/8FBC8F/3E3E3E?text=Exploring';"></div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Tab 2: Career Timeline (UPDATED) -->
+                <div id="timeline" class="tab-content">
+                     <section class="timeline-container-wrapper fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6 ">Career Milestones</h2>
+                        <div class="max-w-4xl mx-auto">
+                            <div class="timeline">
+                                <!-- Timeline Items with descriptions -->
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Senior Product Manager, GAIN (Previously TRGT Digital)</div>
+                                    <div class="timeline-item-period">Feb 2025 - Present</div>
+                                    <p class="timeline-item-description">Driving strategic product direction, leading the development of AI-powered analytics tools and market-defining benchmarking solutions to secure a competitive edge in the Adtech space.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Product Manager, TRGT Digital (Now GAIN)</div>
+                                    <div class="timeline-item-period">Jul 2022 - Feb 2025</div>
+                                     <p class="timeline-item-description">Managed the end-to-end lifecycle of core Adtech products, focusing on creative analytics, smart reporting, and ad management bidder solutions that boosted client acquisition and ARR.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Co-Founder, Meebee.live</div>
+                                    <div class="timeline-item-period">Jun 2024 - Present</div>
+                                     <p class="timeline-item-description">Launched and scaled a sustainable e-commerce plant store, overseeing platform development, vendor partnerships, and digital marketing strategy from the ground up.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Co-Founder, MeeBee Homely Flavors</div>
+                                    <div class="timeline-item-period">Jun 2024 - Present</div>
+                                     <p class="timeline-item-description">Leading a D2C homemade pickle business, focusing on optimizing operational efficiency, supply chain management, and expanding market reach through targeted digital marketing.</p>
+                                </div>
+                                 <div class="timeline-item">
+                                    <div class="timeline-item-title">RYT 200 Registered Yoga Teacher</div>
+                                    <div class="timeline-item-period">Jul 2024 - Present</div>
+                                     <p class="timeline-item-description">Certified and registered with Yoga Alliance (US), equipped with the knowledge to teach foundational yoga principles, asanas, and meditation techniques in both Hatha Yoga and Ashtanga Vinyasa Yoga Techniques</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Associate Product Manager, Sentieo Inc.</div>
+                                    <div class="timeline-item-period">May 2021 - Jun 2022</div>
+                                     <p class="timeline-item-description">Contributed to a leading Fintech B2B platform by developing automation tools that reduced data processing efforts by 80% and improved product quality through cross-functional collaboration.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Associate Lead, Product, Envestnet Inc.</div>
+                                    <div class="timeline-item-period">Jun 2019 - May 2021</div>
+                                     <p class="timeline-item-description">Recognized with the "Envestnet WoW" award for leading over 30 critical client initiatives and driving projects that saved 300+ daily operational hours in a B2B Fintech environment.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Deputy Manager, Vedanta Resources Plc.</div>
+                                    <div class="timeline-item-period">May 2018 - May 2019</div>
+                                     <p class="timeline-item-description">Managed strategic technology and innovation projects, including a company-wide analytics platform deployment, and developed 120+ operational dashboards to enhance decision-making.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Co-Founder & Product Lead, Jokamarket.in</div>
+                                    <div class="timeline-item-period">Jun 2017 - Feb 2018</div>
+                                     <p class="timeline-item-description">Co-founded a campus-based e-commerce startup, successfully launching custom merchandise and managing everything from vendor negotiations to product design and sales.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Operations Intern, Beena Nursery Pvt. Ltd.</div>
+                                    <div class="timeline-item-period">Jun 2017 - Jul 2017</div>
+                                     <p class="timeline-item-description">Developed strategies to improve operational efficiency and boost retail order volume through process improvements and targeted social media marketing.</p>
+                                </div>
+                                 <div class="timeline-item">
+                                    <div class="timeline-item-title">Finance Intern, Indian Oil Corporation Ltd.</div>
+                                    <div class="timeline-item-period">Mar 2017 - May 2017</div>
+                                     <p class="timeline-item-description">Analyzed the financial performance of retail outlets, identified key issues, and proposed actionable solutions to improve profitability and operations.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-title">Assistant Systems Engineer, TCS</div>
+                                    <div class="timeline-item-period">Nov 2014 - Apr 2016</div>
+                                     <p class="timeline-item-description">Built a strong technical foundation in software development and analytics by creating reporting solutions for a major client, earning a "Kudos Award" for performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Tab 3: Product Portfolio -->
+                <div id="product" class="tab-content">
+                    <!-- Product Experience Section -->
+                    <section class="mb-8 fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">Product Experience</h2>
+                        
+                        <!-- GAIN (Adtech) - Senior PM -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">GAIN (Previously TRGT Digital)</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Senior Product Manager (Feb 2025 - Present) <span class="achievement-badge"><i class="fas fa-arrow-up"></i> Promoted!</span></p>
+                            <div class="project-description collapsed">
+                                 <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                    <li><strong class="text-accent-teal">Smart Analysis AI Agent:</strong> Strategized and launched an AI-powered agent, aligning with client and internal user goals, helping users to generate smart reports and insights making use of advertising data of 12 months.</li>
+                                    <li><strong class="text-accent-teal">Benchmarking Solution:</strong> Ideated, designed, and managed the end-to-end execution of a solution analyzing performance metrics and creative effectiveness. This enabled data-driven campaign optimization and increased <b>product usage by 30%</b>.</li>
+                                </ul>
 
-      <!-- Section - Hero Started -->
-			<section class="lui-section lui-section-hero lui-gradient-top" id="started-section">
-  			<div class="container">
+                                <!-- NESTED PROJECTS FOR Senior PM at GAIN 
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <h4 class="text-xl font-bold text-gray-800 mb-4">Key Projects & Artifacts</h4>
+                                   
+                                     <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Benchmarking Solution</h3>
+                                        <p class="text-base text-gray-700 mb-4">Ideated, designed, and managed the end-to-end execution of a solution analyzing performance metrics and creative effectiveness, increasing product usage by 30%.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Screenshots:</h4>
+                                                <img src="https://placehold.co/400x250/548C7B/FFFFFF?text=Screenshot+3" alt="Benchmarking Screenshot" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/FFFFFF?text=Screenshot+3';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Product Video:</h4>
+                                                <div class="relative" style="padding-top: 56.25%;">
+                                                    <iframe class="absolute top-0 left-0 w-full h-full rounded-md shadow-sm" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Sample PRD/Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Benchmarking Solution PRD</a>
+                                    </div>
+                                     
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Smart Analysis AI Agent</h3>
+                                        <p class="text-base text-gray-700 mb-4">An AI-powered agent designed to generate intelligent reports and insights from 12 months of advertising data, aligning with both client and internal user goals.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Conceptual Diagram:</h4>
+                                                <img src="https://placehold.co/400x250/8FBC8F/FFFFFF?text=AI+Agent+Flow" alt="AI Agent Diagram" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/8FBC8F/FFFFFF?text=AI+Agent+Flow';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">UI Mockup:</h4>
+                                                <div class="relative w-full h-auto rounded-md shadow-sm mb-2 bg-gray-200 aspect-[16/10] flex items-center justify-center">
+                                                     <img src="https://placehold.co/400x250/F8F5EC/548C7B?text=AI+UI+Mockup" alt="AI Agent UI" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F8F5EC/548C7B?text=AI+UI+Mockup';">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Sample PRD/Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Smart Analysis PRD</a>
+                                    </div>
+                                </div>
+                                End of nested projects-->
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        
+                        <!-- GAIN (Adtech) - Product Manager -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">TRGT Digital (Now GAIN)</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Product Manager (Jul 2022 - Feb 2025)</p>
+                             <p class="text-base text-gray-600 mb-4 italic">
+                                <strong class="text-accent-teal">Note:</strong> GAIN was formed after a merger of group Companies, I worked with TRGT Digital, a GAIN group company until May 2023.
+                            </p>
+                            <div class="project-description collapsed">
+                                 <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                    <li><strong class="text-accent-teal">Creative Analytics and Smart Reporting solution:</strong> Strategized and launched a comprehensive product consolidating 12-month advertising data. This resulted in <b>$200K additional ARR</b> from enterprise clients and saved <b>198 operational hours/week</b>. Its interactive visualizations and ad video playback capabilities served as a strategic acquisition tool. The smart reporting solution in turn increased <b>client acquisition percentage by 12%</b> by serving as a key product USP</li>
+                                    <li><strong class="text-accent-teal">Ad Bidding Solution:</strong> Established comprehensive analytics to map customer journeys, enhancing cross-team collaboration. Led UX prototype iterations with engineering and stakeholders, validating product value.</li>
+                                    <li><strong class="text-accent-teal">Ad Performance and Management Alerts:</strong> Strategized and launched an AI-powered agent, aligning with client and internal user goals. This initiative increased <b> client acquisition percentage by 12%</b> by serving as a key product USP.</li>
+                                    <li><strong class="text-accent-teal">Bulk Ad upload solution:</strong> Strategized and launched an AI-powered agent, aligning with client and internal user goals. This initiative increased <b>client acquisition percentage by 12%</b> by serving as a key product USP.</li>
+                                </ul>
 
-          <!-- Hero Started -->
-          <div class="lui-started v-line v-line-left">
-    				<div class="section hero-started">
-    					<div class="content scrolla-element-anim-1 scroll-animate" data-animate="active">
-    						<div class="titles">
-    							<div class="lui-subtitle">
-    								<span> Hello, <b>my name is</b>
-    								</span>
-    							</div>
-    							<h1 class="title splitting-text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
-    								<span>
-    									<b>Babeen</b> Barish </span>
-    							</h1>
+                                <!-- NESTED PROJECTS FOR PM at GAIN 
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <h4 class="text-xl font-bold text-gray-800 mb-4">Key Projects & Artifacts</h4>
+                                   
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Creative Analytics tool</h3>
+                                        <p class="text-base text-gray-700 mb-4">Delivers comprehensive creative performance analytics, enabling digital marketers to make data-backed decisions that enhance campaign effectiveness. This tool offers detailed insights at the creative, ad, ad copy levels, landing page, campaign and account levelssimplifying performance analysis and driving optimized account outcomes.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Screenshots:</h4>
+                                                <img src="https://placehold.co/400x250/548C7B/FFFFFF?text=Screenshot+1" alt="Smart Reporting Screenshot 1" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/FFFFFF?text=Screenshot+1';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Product Video:</h4>
+                                                <div class="relative" style="padding-top: 56.25%;">
+                                                    <iframe class="absolute top-0 left-0 w-full h-full rounded-md shadow-sm" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Sample PRD/Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Smart Reporting PRD</a>
+                                    </div>
+                                    
+                                     <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Creative Analytics Product</h3>
+                                        <p class="text-base text-gray-700 mb-4">A comprehensive product consolidating 12-month advertising data, resulting in significant ARR and operational hour savings for enterprise clients.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Screenshots:</h4>
+                                                <img src="https://placehold.co/400x250/F8F5EC/548C7B?text=Screenshot+2" alt="Creative Analytics Screenshot" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F8F5EC/548C7B?text=Screenshot+2';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Product Video:</h4>
+                                                <div class="relative" style="padding-top: 56.25%;">
+                                                    <iframe class="absolute top-0 left-0 w-full h-full rounded-md shadow-sm" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Sample PRD/Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Creative Analytics PRD</a>
+                                    </div>
+                                </div>
+                              -->
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        
+                        <!-- Sentieo Inc. (Now Alphasense) -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Sentieo Inc. (Now Alphasense) - Fintech B2B</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Associate Product Manager (May 2021 - Jun 2022)</p>
+                            <div class="project-description collapsed">
+                                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Rule Manager System for Automation:</strong> Carried out competitive analysis, developed a product roadmap, and streamlined the development cycle for Rule Manager, successfully reducing <b>data upload effort by 80%</b>. Managed end-to-end execution for over 12 projects within 4+ releases.</li>
+                                <li><strong class="text-accent-teal">Product Idea Generation:</strong> Ideated and led cross-departmental innovation sessions with Customer Service, Design, and Development teams for new product initiatives, resulting in a <b>90% reduction in functional bugs</b>.</li>
+                                <li><strong class="text-accent-teal">Agile and Scrum Practices:</strong> Ideated and led cross-departmental innovation sessions with Customer Service, Design, and Development teams for new product initiatives, resulting in a <b>90% reduction in functional bugs</b>.</li>
+                            </ul>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
 
-                  <!-- Typing test START -->
-                  <div class="label lui-subtitle"> I am a
-                    <a href="" class="typewrite" data-period="2000" data-type='[ "Product Manager", "UX Researcher", "Project Manager", "Blogger", "Freelancer" ]'>
-                      <strong class="wrap"></strong>
-                    </a>
-                  </div>
-                  <!-- Typing test END -->
-    						</div>
-    						<div class="description">
-    							<div>
-    								<p>Welcome to my corner of the web! I'm Babeen Barish, a Senior Product Manager with over 8 years of experience  dedicated to crafting impactful digital products. My journey spans the dynamic landscapes of Fintech, Adtech, and Martech, where I've consistently driven product strategy and delivered innovative, data-driven solutions that significantly enhance revenue and operational efficiency.</p><p>Here, you'll find insights into my approach to product management, my proven track record of leading cross-functional teams, and my passion for building products that truly make a difference. Explore my experiences in turning complex challenges into successful outcomes, from increasing client acquisition and product usage to generating substantial additional recurring revenue and streamlining operations.</p>
-    							</div>
-    							<div class="social-links">
-                    <a target="_blank" rel="nofollow" href="tel:+971561223772">
-                      <i aria-hidden="true" class="far fa-address-book"></i>
-                    </a>
-                    <a target="_blank" rel="nofollow" href="mailto:babeenb2018@email.iimcal.ac.in">
-                      <i aria-hidden="true" class="far fa-envelope"></i>
-                    </a>
-    								<a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
-    									<i aria-hidden="true" class="fab fa-linkedin"></i>
-    								</a>
-    								<a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
-    									<i aria-hidden="true" class="fab fa-instagram"></i>
-    								</a>
-    								<a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
-    									<i aria-hidden="true" class="fab fa-medium"></i>
-    								</a>
-    							</div>
-    						</div>
-    						<div class="bts">
-    							<a target="_blank" href="docs/Babeen_Barish_Product_CV.pdf" download="Babeen_Barish_CV.pdf" class="btn">
-    								<span>Download CV</span>
-    							</a>
-    							<a href="#skills-section" class="btn-lnk"> My Skills </a>
-    						</div>
-    					</div>
-    					<div class="slide scrolla-element-anim-1 scroll-animate" data-animate="active">
-    						<img decoding="async" src="images/profile-babeen.svg" alt="<b>Zoé</b> Miller">
-    						<span class="circle circle-1"></span>
-    						<span class="circle img-1" style="background-image: url(images/pat-1.png);"></span>
-    						<span class="circle img-2" style="background-image: url(images/pat-2.png);"></span>
-    						<span class="circle img-3" style="background-image: url(images/pat-2.png);"></span>
-    						<div class="info-list">
-    							<ul>
-    								<li>
-    									<span class="num">8 + <!--<strong>+</strong>-->
-    									</span>
-    									<span class="value">Years of <strong>Experience</strong>
-    									</span>
-    								</li>
-    								<li>
-    									<span class="num">200+</span>
-    									<span class="value">Completed <strong>Projects</strong>
-    									</span>
-    								</li>
-    							</ul>
-    						</div>
-    					</div>
-    				</div>
-            <div class="lui-bgtitle">
-              <span> Product Manager </span>
-            </div>
-          </div>
-
-        </div>
-			</section>
-
-      <!-- Section - Skills -->
-      <section class="lui-section lui-gradient-bottom" id="skills-section">
-			<!-- <section class="lui-section lui-gradient-center" id="skills-section"> -->
-
-        <!-- Heading -->
-        <div class="lui-heading">
-          <div class="container">
-
-            <div class="m-titles align-center">
-              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> Professional Skills </span>
-              </h2>
-              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> my <b>Talent</b> </span>
-              </div>
-            </div>
-
-          </div>
-				</div>
-
-        <!-- Skills -->
-				<div class="v-line v-line-left">
-          <div class="container">
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-
-                <div class="skills-items">
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> Jira and Confluence </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>I have 5+ years of experience using jira and confluence for managing team, maintaining structure and carry out documentation for easy process flow. At TRGT Digital, I have implemented 0 to 1 process implementation using Jira and confluence.</p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 99%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">99 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> Product Management </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>Product Management was my forte since 6+ years. I am passionate about product management, and has been involved in designing and developing customer-centric products since the time I have been doing my masters. Now, I am involved in strategic management, ideation, design, development and adoption of technology products in my employer firm.</p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 75%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">99 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
+                        <!-- Envestnet Inc. -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Envestnet Inc. - Fintech B2B</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Associate Lead, Product (Jun 2019 - May 2021)</p>
+                            <div class="project-description collapsed">
+                               <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Operational Efficiency Enhancement:</strong> Led over 20 projects, utilizing platform analytics and conducting 40+ hours of work shadowing, resulting in saving <b>300 operational hours/day</b>.</li>
+                                <li><strong class="text-accent-teal">Client Initiative Leadership:</strong> Spearheaded the design and implementation of product-based solutions for over 30 critical client initiatives through comprehensive requirement gathering, analysis, wireframing, and stakeholder engagement, earning the "Envestnet WoW award" for exemplary performance <span class="achievement-badge"><i class="fas fa-star"></i> Awarded!</span>.</li>
+                                <li><strong class="text-accent-teal">Agile Workflow Optimization:</strong> Optimized Agile Scrum workflows via effective story grooming and backlog refinement, eliminating critical defects and improving sprint planning.</li>
+                            </ul>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                    </section>
+                    <!-- Other Work Experience Section (MOVED BACK) -->
+                    <section class="mb-8 fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">Other Work Experience (Product-Adjacent Roles)</h2>
+                        <!-- Vedanta Resources Plc. -->
+                         <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Vedanta Resources Plc.</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Deputy Manager, Technology and Innovation (Strategy) (May 2018 - May 2019)</p>
+                            <div class="project-description collapsed">
+                               <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                   <li><strong class="text-accent-teal">Analytics Project Management:</strong> Reported directly to CTIO, managing Analytics Projects for T&I group; Accomplished Osisoft PI deployment across 4 strategic business units, overseeing a 40M+ INR budget, ensuring on-time phase-1 launch.</li>
+                                   <li><strong class="text-accent-teal">KPI Mapping & Integration:</strong> Executed KPI Mapping for Osi-PI Dashboards, integrating insights for 5+ SBUs, utilized by SBU Heads & CXOs for strategic decisions.</li>
+                                   <li><strong class="text-accent-teal">Operational Dashboards:</strong> Crafted 120+ Ops dashboards for trucks, mills, and smelters, enhancing real-time operational transparency, identifying 15+ use cases, and leading training for 300+ mill workers, improving metal recovery by 1%.</li>
+                               </ul>
+                                <!-- NESTED PROJECTS 
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                     <h4 class="text-xl font-bold text-gray-800 mb-4">Key Projects & Artifacts</h4>
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Osisoft PI Deployment (Vedanta)</h3>
+                                        <p class="text-base text-gray-700 mb-4">Managed the successful deployment of Osisoft PI across four strategic business units, enhancing real-time operational transparency and enabling data-driven decisions for CXOs.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Dashboard Example for Mill Overview:</h4>
+                                                <img src="https://placehold.co/400x250/3F6B5C/FFFFFF?text=Vedanta+Dashboard" alt="Vedanta Project Screenshot" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/3F6B5C/FFFFFF?text=Vedanta+Dashboard';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Dashboard Example for Truck tracking:</h4>
+                                                <img src="https://placehold.co/400x250/F8F5EC/548C7B?text=Architecture+Diagram" alt="Vedanta Project Architecture" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F8F5EC/548C7B?text=Architecture+Diagram';">
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Project Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Project Rollout Plan</a>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        <!-- Tata Consultancy Services (TCS) -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Tata Consultancy Services (TCS)</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">Assistant Systems Engineer (Nov 2014 - Apr 2016)</p>
+                            <div class="project-description collapsed">
+                                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                   <li><strong class="text-accent-teal">Reporting Efficiency:</strong> Enhanced reporting efficiency, implementing Jasper for analytics, reducing development time.</li>
+                                   <li><strong class="text-accent-teal">Technical Skill Mastery:</strong> Mastered technical skills in MySQL, Java, Hibernate, and Spring.</li>
+                                   <li><strong class="text-accent-teal">TCS Kudos Award:</strong> Awarded TCS Kudos Award Jan 2015 <span class="achievement-badge"><i class="fas fa-trophy"></i> Recognized!</span>.</li>
+                               </ul>
+                               <!-- NESTED PROJECTS 
+                               <div class="mt-6 pt-4 border-t border-gray-200">
+                                    <h4 class="text-xl font-bold text-gray-800 mb-4">Key Projects & Artifacts</h4>
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Matinee - For Employee engagement - Side Project in TCS</h3>
+                                        <p class="text-base text-gray-700 mb-4">Matinee is an internal web-based quiz and engagement tool designed to inject energy into the afternoon workday, specifically by incentivizing timely returns from lunch breaks and fostering a more engaged work environment. </p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Basic UI for User</h4>
+                                                <img src="https://placehold.co/400x250/A2BE99/548C7B?text=Inventory+Dashboard" alt="Inventory Management Dashboard" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/A2BE99/548C7B?text=Inventory+Dashboard';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Basic UI for Organiser</h4>
+                                                <img src="https://placehold.co/400x250/548C7B/F8F5EC?text=Process+Flow" alt="Inventory Process Flow" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/F8F5EC?text=Process+Flow';">
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Outcome/Impact:</h4>
+                                        <p class="text-sm text-gray-700">Enabled a much more engaging afternoon session, fostering employee engagement, and an increase in overall productivity in the latter half of the day.</p>
+                                    </div>
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Reporting Automation (TCS)</h3>
+                                        <p class="text-base text-gray-700 mb-4">Enhanced reporting efficiency by implementing Jasper for analytics, which significantly reduced report generation and development time for the client.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Before/After Comparison:</h4>
+                                                <img src="https://placehold.co/400x250/548C7B/FFFFFF?text=TCS+Project" alt="TCS Project Screenshot" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/FFFFFF?text=TCS+Project';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Sample Generated Report:</h4>
+                                                 <img src="https://placehold.co/400x250/F8F5EC/3F6B5C?text=Jasper+Report" alt="TCS Jasper Report" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F8F5EC/3F6B5C?text=Jasper+Report';">
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Technical Documentation:</h4>
+                                        <a href="#" class="link-color hover:underline">Link to Implementation Specs</a>
+                                    </div>
+                                </div>
+                            -->
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                    </section>
                 </div>
 
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <!-- Tab 4: Career & Ventures -->
+                <div id="career" class="tab-content">
+                    <!-- Entrepreneurship Section -->
+                    <section class="mb-8 fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">Entrepreneurship</h2>
+                        <!-- Meebee.live (New) -->
+                        <div class="card">
+                             <h3 class="text-2xl font-semibold text-gray-800 mb-2">Co-Founder, Meebee.live</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">(Jun 2024 - Present) - Online Plant Store</p>
+                            <div class="project-description collapsed">
+                                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Online Plant Store Launch:</strong> Led the conceptualization, development, and launch of an e-commerce platform dedicated to selling sustainable plants and providing gardening resources.</li>
+                                <li><strong class="text-accent-teal">Vendor Partnerships:</strong> Established partnerships with local nurseries and suppliers to ensure a diverse and eco-friendly inventory.</li>
+                                <li><strong class="text-accent-teal">Digital Marketing Strategy:</strong> Developed and executed digital marketing campaigns to drive traffic and sales, focusing on SEO and social media engagement.</li>
+                                </ul>
+                                 <!-- NESTED PROJECT -->
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                     <h4 class="text-xl font-bold text-gray-800 mb-4">Project Showcase</h4>
+                                     <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Meebee.live - Online Plant Store</h3>
+                                        <p class="text-base text-gray-700 mb-4">Developing and managing an online plant store dedicated to sustainable plant sales and gardening resources.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Product Video</h4>
+                                                <div class="relative" style="padding-top: 56.25%;">
+                                                    <iframe class="absolute top-0 left-0 w-full h-full rounded-md shadow-sm" src="https://www.youtube.com/embed/EIhVi70D-YQ?si=oJPSlebfaxfYPkh_&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Key Features/Impact:</h4>
+                                        <p class="text-sm text-gray-700">Implemented intuitive plant finder tool based on user preferences. Curated a selection of drought-tolerant and low-maintenance plants. Engaged with local nurseries for sustainable sourcing, promoting eco-friendly practices.</p>
+                                    </div>
+                                 </div>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        <!-- MeeBee Homely Flavors -->
+                        <div class="card">
+                             <h3 class="text-2xl font-semibold text-gray-800 mb-2">Co-Founder, MeeBee Homely Flavors</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">(Jun 2024 - Present) - Home made pickle business</p>
+                            <div class="project-description collapsed">
+                                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Addressed declining operational efficiency in Feb 2017 and strategized expansion plans</strong> allocating budget INR 10L+, including process improvement.</li>
+                                <li><strong class="text-accent-teal">Boosted retail order volume by over 4000 in one year</strong> through FB Marketing strategies.</li>
+                                <li><strong class="text-accent-teal">Proposed and implemented mechanization in pot filling</strong>, reducing daily operations cost by 24%.</li>
+                            </ul>
+                                <!-- NESTED PROJECT -->
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                     <h4 class="text-xl font-bold text-gray-800 mb-4">Project Showcase</h4>
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">MeeBee Homely Flavors - Pickle Business</h3>
+                                        <p class="text-base text-gray-700 mb-4">Leading the strategic growth of a pickle business, focusing on operational efficiency and market expansion.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Out for delivery products</h4>
+                                                <img src="./images/picklepacked1.jpg" alt="Pickle Business Product" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/8FBC8F/FFFFFF?text=Pickle+Product';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Product Showcase</h4>
+                                                <img src="./images/pickle1.jpg" alt="Pickle Business Branding" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/F8F5EC?text=Pickle+Branding';">
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Key Learnings/Impact:</h4>
+                                        <p class="text-sm text-gray-700">Successfully implemented Meta Marketing strategies, instagram and whatsapp business to streamline D2C pickle business for MeeBee Homely flavours. Studied and optimised delivery supply chain by doing competitor analysis and negotiations with 7+ vendors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        <!-- Jokamarket.in -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Co-Founder & Product Lead, Jokamarket.in</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">(Jun 2017 - Feb 2018)</p>
+                            <div class="project-description collapsed">
+                                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Successfully onboarded 6 vendors</strong>, negotiating with 30+ suppliers to ensure cost-effective & timely SKU delivery.</li>
+                                <li><strong class="text-accent-teal">Spearheaded the design and launch of 12 SKUs of IIMC merchandise</strong>, securing 500+ orders, Revenue INR 2.3L, Net Profit INR1.1L within two months.</li>
+                                <li><strong class="text-accent-teal">Launched a specialized e-commerce platform</strong> dedicated to institute merchandise, targeting niche market demands.</li>
+                            </ul>
+                                <!-- NESTED PROJECT -->
+                                <div class="mt-6 pt-4 border-t border-gray-200">
+                                     <h4 class="text-xl font-bold text-gray-800 mb-4">Project Showcase</h4>
+                                    <div class="nested-project-card">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Jokamarket.in (Customisable Merchandise store)</h3>
+                                        <p class="text-base text-gray-700 mb-4">Launched and managed an e-commerce platform for custom IIMC merchandise, achieving significant revenue and profit within the first two months.</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Merchandise Examples</h4>
+                                                <img src="./images/Jokamarket1.png" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/8FBC8F/FFFFFF?text=IIMC+Merch';">
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-medium text-gray-800 mb-2">Platform UI</h4>
+                                                <img src="images/Jokamarket2.png" alt="JokaMarket UI" class="w-full h-auto rounded-md shadow-sm mb-2" onerror="this.onerror=null;this.src='https://placehold.co/400x250/548C7B/F8F5EC?text=JokaMarket+UI';">
+                                            </div>
+                                        </div>
+                                        <h4 class="text-lg font-medium text-gray-800 mb-2">Key Learnings/Impact:</h4>
+                                        <p class="text-sm text-gray-700">Gained hands-on experience in e-commerce, vendor management, and product design from concept to launch. Successfully identified and catered to a niche market demand within a campus environment.</p>
+                                        <a href="https://drive.google.com/file/d/1JuRAoskNy_Iww7u1G0tg1hsmAV1IqTED/view?usp=sharing" class="link-color hover:underline" target="_blank">Link to Project Presentation</a> <br>
+                                        <a href="https://drive.google.com/file/d/1Rgx1GCpRpYWBURkbCQElH6rasfjIijNr/view?usp=sharing" class="link-color hover:underline" target="_blank">Link to Operations Analysis Document</a>
 
-                <div class="skills-items">
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> Cross Team collaboration </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>Communication is key whenever the role of a product manager is considered. Since the past 5+ years, I am able to successfully collaborate with multiple teams, each of who has a role to play in my product. I have successfully collaborated with multiple on-site and off-site teams to come up with largely customer-centric products</p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 75%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">88 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> Scrum and Agile Project Management </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>I have largely worked with Agile project teams with a strong sense of ownership and collaborative processes, going up to designing unique agile processes as per the team need. I have more that 5 years of experience in managing scrum teams, growing and learning more and more about agile and scrum project management methodologies day by day.</p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 70%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">99 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Internships Section -->
+                    <section class="mb-8 fade-in-section">
+                        <h2 class="text-3xl font-bold section-heading mb-6">Internships</h2>
+                         <!-- Beena Nursery Pvt. Ltd. -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Operations Intern, Beena Nursery Pvt. Ltd.</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">(Jun 2017 - Jul 2017)</p>
+                            <div class="project-description collapsed">
+                               <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Addressed declining operational efficiency in Feb 2017 and strategized expansion plans</strong> allocating budget INR 10L+, including process improvement.</li>
+                                <li><strong class="text-accent-teal">Boosted retail order volume by over 4000 in one year</strong> through FB Marketing strategies.</li>
+                                <li><strong class="text-accent-teal">Proposed and implemented mechanization in pot filling</strong>, reducing daily operations cost by 24%.</li>
+                            </ul>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        <!-- Indian Oil Corporation Limited -->
+                        <div class="card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Finance Intern, Indian Oil Corporation Limited</h3>
+                            <p class="text-lg text-gray-600 mb-4 font-medium">(Mar 2017 - May 2017)</p>
+                            <div class="project-description collapsed">
+                                 <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong class="text-accent-teal">Addressed declining financial performance of 12/1065 ROs in Kerala</strong> and suggested methods for improvement.</li>
+                                <li><strong class="text-accent-teal">Suggested methods for resuming operations of 12/1065 ROs</strong> under legal disputes.</li>
+                            </ul>
+                            </div>
+                            <button class="read-more-button" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                    </section>
                 </div>
 
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-
-                <div class="skills-items">
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> SQL </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>My very first job required intensive knowledge of SQL to define and extract fund based reports. Ever since, RDBMS and SQL have proved helpful in all the endeavours I have hence worked on. I use SQL for extracting, and rearranging data for getting insights </p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 90%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">90 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="skills-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name">
-                      <span> Project Planning </span>
-                    </h6>
-                    <div class="text">
-                      <div>
-                        <p>I have been involved in Cost Benefit analysis and creation of product roadmap for all my project since 5+ years. Skilled in estimation, developing roadmaps and carrying out end-to-end execution. Involved in designing and implementing a process for smooth everyday functioning of tech team and release of 4+ tech products</p>
-                      </div>
-                    </div>
-                    <div class="dots">
-                      <div class="dot" style="width: 95%;">
-                        <span></span>
-                      </div>
-                    </div>
-                    <div class="value">
-                      <span class="num">80 <span>%</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="lui-bgtitle">
-              <span> Skills </span>
-            </div>
-
-					</div>
-				</div>
-
-      </section>
-
-      <!-- Section - Works -->
-
-
-      <!-- Section - Resume -->
-			<!-- <section class="lui-section lui-gradient-bottom" id="resume-section"> -->
-      <section class="lui-section lui-gradient-center" id="resume-section">
-      <!-- <section class="lui-section lui-gradient-top" id="resume-section"> -->
-
-        <!-- Heading -->
-        <div class="lui-heading">
-          <div class="container">
-
-            <div class="m-titles align-center">
-              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> Resume </span>
-              </h2>
-              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> my <b>Story</b>
-                </span>
-              </div>
-            </div>
-
-          </div>
-				</div>
-
-        <!-- History -->
-				<div class="v-line v-line-left">
-          <div class="container">
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                <h5 class="history-title scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <span> Experience </span>
-                </h5>
-                <div class="history-items">
-                  <div class="history-item lui-collapse-item opened scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn active">
-                      <span> Product Manager </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> TRGT Digital </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> Jun 2022 - <b>Present</b>
-                        </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Product Management ● Product Roadmap ● Product Planning ● Project Management ● Jira ● Confluence ● Atlassian ● Business Analysis ● Product Requirements ● Buisness Requirememt ● Business Specification ● Cross Team Collabortion ● Team Management ● Product analysis ● Market Research ● Competitor Analysis </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Associate Product Manager </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Sentieo </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> May 2021 - Jun 2022 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Product Management ● Program Management ● Software Development Life Cycle ● Agile ● Agile Scrum Methodology ● Cross Team collaboration ● Functional Specification ● Aha! ● Atlassian Suite</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Associate Lead - Product </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Envestnet Inc. </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> Jun 2019 - May 2021 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p> Business Analytics ● Data Analytics ● Feature Development ● Backlog grooming ● Scrum Master ● Product Owner ● Release Management ● Functional Testing ● Release notes ● Functional Specification Document</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Deputy Manager - Technology & Innovation </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Vedanta Resources Limited </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> May 2018 - May 2019 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Project Management ● Business Strategy ● Digitalization ● Program Management ● Osisoft PI ● Leadership Development ● Corporate Social Responsibility ● End to end Project Management ● Cross Team collaboration ● User Acceptance Testing ● Release Management ● Change Management </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-<!--                   <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Product Manager </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> jokamarket.in </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> Jun 2017 - Mar 2018 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Management Trainee - Finance </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Indian Oil Corporation Limited </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> Apr 2017 - May 2017 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> Assistant System Engineer </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Tata Consultancy Services </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> Nov 2014 - Apr 2016 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Java ● Struts ● Spring ● SQL ● Agile ● Kanban ● Reporting ● Data Analytics ● Descriptive Analytics ● IT Services</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                <h5 class="history-title scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <span> Education </span>
-                </h5>
-                <div class="history-items">
-                  <div class="history-item lui-collapse-item opened scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn active">
-                      <span> Indian Institute of Management, Calcutta </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Master of Business Administration </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> 2016 - 2018 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>Masters Degree from one of the most sought after B Schools in India, specialised in Management Information System, Economics and Marketing</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="history-item lui-collapse-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <h6 class="name lui-collapse-btn">
-                      <span> University of Kerala </span>
-                    </h6>
-                    <div class="history-content">
-                      <div class="subname">
-                        <span> Bachelor of Technology </span>
-                      </div>
-                      <div class="date lui-subtitle">
-                        <span> 2010 - 2014 </span>
-                      </div>
-                      <div class="text">
-                        <div>
-                          <p>B Tech in Electrical and Electonics engineering from one of the most prestigious Engineering colleges in Kerala, TKM College of Engineering</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="lui-bgtitle">
-              <span> History </span>
-            </div>
-
-					</div>
-				</div>
-
-      </section>
-
-      <!-- Section - Testimonials -->
-			<!-- <section class="lui-section lui-gradient-center" id="testimonials-section"> -->
-      <section class="lui-section lui-gradient-top" id="testimonials-section">
-      <!-- <section class="lui-section lui-gradient-bottom" id="testimonials-section"> -->
-
-        <!-- Heading -->
-        <div class="lui-heading">
-          <div class="container">
-
-            <div class="m-titles align-center">
-              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> Testimonials </span>
-              </h2>
-              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> what <b>Colleagues have to Say</b>
-                </span>
-              </div>
-            </div>
-
-          </div>
-				</div>
-
-        <!-- Testimonials -->
-				<div class="v-line v-line-right">
-          <div class="container">
-
-            <div class="swiper-container js-testimonials scrolla-element-anim-1 scroll-animate" data-animate="active">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="testimonials-item">
-                    <div class="image">
-                      <!-- <img decoding="async" src="images/testi4-2.jpg" alt="Barbara Wilson"> -->
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
-                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text lui-text">
-                      <div>
-                        <p>Babeen was a tremendous addition to our Technology and Innovation group at HZL Vedanta, Her analytical skills along with a balanced approach to various projects were an asset for any company working on complex issues. I was highly appreciative of her ability to tackle projects outside her expertise/comfort zone especially in areas related to mining and processing. Babeen even took the assignment on Zinc-Air batteries, a leading technology, head-on. Babeen is a highly talented individual, calm, diligent and persistent, all the attributes that any company aspire for in this digital era. I wish Babeen all the very best in her future.</p>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <h6 class="name">
-                        <span>Dr. Barun Gorain</span>
-                      </h6>
-                      <div class="author">
-                        <span>Director and CEO, Ore to Metal</span>
-                      </div>
-                      <div class="author">
-                        <span>Ex - CTIO, Hindustan Zinc LTD.</span>
-                      </div>
-                    </div>
-                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonials-item">
-                    <div class="image">
-                      <!-- <img decoding="async" src="images/testi4-1.jpg" alt="Charlie Smith"> -->
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
-                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text lui-text">
-                      <div>
-                        <p>Babeen is provocative thinker and is always full of ideas. Her tenacity to always add a new approach to conventional working has always amazed me. She is hardworking, people sensitive, team player and goal oriented professional. I am certain she will always be an asset to the organization.</p>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <h6 class="name">
-                        <span>Neelesh Chawda</span>
-                      </h6>
-                      <div class="author">
-                        <span>Ex - Head of Milling Excellence,</span>
-                      </div>
-                      <div class="author">
-                        <span>Hindustan Zinc LTD. (Vedanta)</span>
-                      </div>
-                    </div>
-                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonials-item">
-                    <div class="image">
-                      <!-- <img decoding="async" src="images/testi4-4.jpg" alt="Roy Wang"> -->
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
-                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text lui-text">
-                      <div>
-                        <p>Babeen worked with us while at HZL in Vedanta group as an analytics professional. A key learner and excellent team player. Her innovative approach towards problem solving was key to many solutions she delivered while at HZL. Apart from her domain experties she was always keen to learn about the minining and metal processing, a key attribute to have as an analyst. She would always be an asset to every organization she works with.</p>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <h6 class="name">
-                        <span>S Siddiqui</span>
-                      </h6>
-                      <div class="author">
-                        <span>AVP & Head - Digitalization</span>
-                      </div>
-                      <div class="author">
-                        <span>Hindustan Zinc LTD. (Vedanta)</span>
-                      </div>
-                    </div>
-                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonials-item">
-                    <div class="image">
-                      <!-- <img decoding="async" src="images/testi4-3.jpg" alt="Jennifer Smith"> -->
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
-                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text lui-text">
-                      <div>
-                        <p>Babeen and I had worked together in the same team, and it was a pleasure to have worked with her. Though we had individual projects to handle, she would be always be available for discussions and clarifications and that helped a lot during my project analysis. She is a great learner, with her sound domain knowledge being one of her forte. She was also a excellent ideator, and she was able to exhibit this by being part of a winning team, in our company's hackathon competition. Wishing her all success for her future endeavors, and am sure she would be an excellent asset to any company that she is associated with.</p>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <h6 class="name">
-                        <span>Chacko Panicker</span>
-                      </h6>
-                      <div class="author">
-                        <span>Senior Lead - BSA, Envestnet</span>
-                      </div>
-                    </div>
-                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonials-item">
-                    <div class="image">
-                      <!-- <img decoding="async" src="images/testi4-5.jpg" alt="Paul Freeman"> -->
-                      <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44px" height="34px">
-                          <path fill-rule="evenodd" stroke-width="2px" stroke="rgb(0, 0, 0)" fill="rgb(41, 165, 135)" d="M17.360,8.325 C15.490,5.563 11.616,4.762 8.705,6.536 C6.901,7.635 5.815,9.533 5.826,11.567 C5.828,14.854 8.637,17.516 12.101,17.515 C13.290,17.513 14.456,17.192 15.460,16.587 C14.967,17.975 14.049,19.457 12.537,20.942 C11.934,21.533 11.951,22.476 12.574,23.048 C13.198,23.619 14.192,23.604 14.794,23.012 C20.384,17.515 19.658,11.539 17.360,8.333 L17.360,8.325 ZM32.407,8.325 C30.538,5.563 26.663,4.762 23.752,6.536 C21.949,7.635 20.863,9.533 20.873,11.567 C20.875,14.854 23.685,17.516 27.148,17.515 C28.338,17.513 29.503,17.192 30.508,16.587 C30.015,17.975 29.097,19.457 27.585,20.942 C26.982,21.533 26.999,22.476 27.622,23.048 C28.245,23.619 29.239,23.604 29.842,23.012 C35.432,17.515 34.706,11.539 32.407,8.333 L32.407,8.325 Z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="text lui-text">
-                      <div>
-                        <p>I worked with Babeen in the same team at Sentieo. She is a great team player on whom you can always count upon. While we had demarcated areas of ownership more often than not we would find the lines getting blurred with collaborative ideation and problem solving. I personally rate her communication and project management skills very highly. Babeen exhibits the perfect blend of taking up responsibilities in her expertise domain and not shying away from challenging assignments involving steep learning curves. The confidence she exuded was an inspiration for the whole team. I am very confident that Babeen would be a very valuable asset for any organization she associates herself with and I wish her the best.</p>
-                      </div>
-                    </div>
-                    <div class="info">
-                      <h6 class="name">
-                        <span>Dushyant Sankaralingam</span>
-                      </h6>
-                      <div class="author">
-                        <span>Product Manager, Sentieo</span>
-                      </div>
-                    </div>
-                    <div class="bg-img" style="background-image: url(images/pat-2.png);"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-
-            <div class="lui-bgtitle">
-              <span> Reviews </span>
-            </div>
-
-					</div>
-				</div>
-
-      </section>
-			
-
-      <!-- Section - Contacts -->
-      <!-- <section class="lui-section lui-gradient-top" id="contact-section"> -->
-			<section class="lui-section lui-gradient-bottom" id="contact-section">
-
-        <!-- Heading -->
-        <div class="lui-heading">
-          <div class="container">
-
-            <div class="m-titles align-center">
-              <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> Contact Me </span>
-              </h2>
-              <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
-                <span> Let’s <b>Talk About Ideas</b>
-                </span>
-              </div>
-            </div>
-
-          </div>
-				</div>
-
-        <!-- Contact -->
-				<div class="lui-contacts v-line v-line-left">
-          <div class="container">
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-
-                <div class="numbers-items">
-                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <div class="icon">
-                      <i aria-hidden="true" class="far fa-map"></i>
-                    </div>
-                    <div class="title">
-                      <span> Address </span>
-                    </div>
-                    <div class="lui-text">
-                      <span> Trivandrum, Kerala | Aryankala, Chalakudy | Abu Dhabi, UAE </span>
-                    </div>
-                  </div>
-                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <div class="icon">
-                      <i aria-hidden="true" class="far fa-user"></i>
-                    </div>
-                    <div class="title">
-                      <span> Visa & Licenses </span>
-                    </div>
-                    <div class="lui-text">
-                      <span> Golden Visa (UAE) | UAE Driving License | Registered Yoga Teacher 200 hours (RYT 200) </span>
-                    </div>
-                  </div>
-                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <div class="icon">
-                      <i aria-hidden="true" class="far fa-envelope"></i>
-                    </div>
-                    <div class="title">
-                      <span> Email </span>
-                    </div>
-                    <div class="lui-text">
-                      <span> babeenb@gmail.com | babeenb2018@email.iimcal.ac.in  </span>
-                    </div>
-                  </div>
-                  <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
-                    <div class="icon">
-                      <i aria-hidden="true" class="far fa-address-book"></i>
-                    </div>
-                    <div class="title">
-                      <span> Phone </span>
-                    </div>
-                    <div class="lui-text">
-                      <span> +91 8078 55 2204 | +971 561 22 3772 </span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-
-                <div class="contacts-form scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <div class="bg-img" style="background-image: url(images/pat-1.png);"></div>
-                  <div class="contacts-form">
-                    <form id="cform" method="post">
-                      <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="group">
-                            <label>
-                              Your Full Name <b>*</b>
-                              <input type="text" name="name">
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <div class="group">
-                            <label>
-                              Your Email Address <b>*</b>
-                              <input type="email" name="email">
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <div class="group">
-                            <label>
-                              Your Subject <b>*</b>
-                              <input type="text" name="subject">
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <div class="group">
-                            <label>
-                              Your Message <b>*</b>
-                              <textarea name="message"></textarea>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-right">
-                          <!-- <div class="terms-label">* Accept the terms and conditions.</div> -->
-                          <a href="#" class="btn" onclick="$('#cform').submit(); return false;">
-                            <span>Send Message</span>
-                          </a>
-                        </div>
-                      </div>
-                    </form>
-                    <div class="alert-success" style="display: none;">
-                      <p>Thanks, your message is sent successfully.</p>
-                    </div>
-                    <div class="alert-error" style="display: none;">
-                      <p>Unfortunately the message couldn't be sent. Please email me at babeenb2018@email.iimcal.ac.in</p>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-            <div class="lui-bgtitle">
-              <span> Contact Me </span>
-            </div>
-
-					</div>
-				</div>
-
-      </section>
-
-		</div>
-
-		<!-- Footer -->
-		<div class="footer">
-			<div class="footer__builder">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-              <div class="social-links scrolla-element-anim-1 scroll-animate" data-animate="active">
-                <a target="_blank" rel="nofollow" href="https://www.linkedin.com/in/babeenbarish/">
-                  <i aria-hidden="true" class="fab fa-linkedin"></i>
-                </a>
-                <a target="_blank" rel="nofollow" href="https://www.instagram.com/babeen_barish/">
-                  <i aria-hidden="true" class="fab fa-instagram"></i>
-                </a>
-                <a target="_blank" rel="nofollow" href="https://medium.com/@babeenbarish">
-                  <i aria-hidden="true" class="fab fa-medium"></i>
-                </a>
-              </div>
-
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-              <div class="copyright-text align-center scrolla-element-anim-1 scroll-animate" data-animate="active">
-                © 2023 <strong>MeeBee.live</strong>. All rights reserved
-              </div>
-
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-              <div class="copyright-text align-right scrolla-element-anim-1 scroll-animate" data-animate="active">
-                Developed by <strong>MeeBee.live</strong>
-              </div>
-
-            </div>
-          </div>
-        </div>
-			</div>
-		</div>
-
-	</div>
-
-	<!-- cursor -->
-	<div class="cursor"></div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/swiper.js"></script>
-  <script src="js/splitting.js"></script>
-  <script src="js/jarallax.min.js"></script>
-  <script src="js/magnific-popup.js"></script>
-  <script src="js/imagesloaded.pkgd.js"></script>
-  <script src="js/isotope.pkgd.js"></script>
-  <script src="js/jquery.scrolla.js"></script>
-  <script src="js/skrollr.js"></script>
-  <script src="js/jquery.cookie.js"></script>
-  <script src="js/typed.js"></script>
-  <script src="js/common.js"></script>
-
-
-  <!-- bslthemes.com buttons assets begin -->
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js"></script>
-  <!-- bslthemes.com buttons assets end -->
-
-
-
-</body></html>
+                
+            </main>
+    </div>
+    <!-- Footer / Call to Action (Stays at the bottom) -->
+    <footer class="text-center py-12 fade-in-section">
+        <h2 class="text-4xl font-bold gradient-text mb-4">Ready to cultivate new ideas?</h2>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">I'm always open to discussing new product challenges and opportunities. Let's grow something amazing together.</p>
+        <a href="mailto:babeenb@gmail.com">
+            <button class="quest-button">
+                <i class="fas fa-seedling"></i> <!-- Changed icon to a seedling -->
+                Start a New Sprout (Contact Me)
+            </button>
+        </a>
+    </footer>
+    <script>
+        // --- Tab Navigation Functionality ---
+        function openTab(evt, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            const tabcontent = document.querySelectorAll(".tab-content");
+            tabcontent.forEach(tab => tab.style.display = "none");
+            // Get all elements with class="tab-button" and remove the class "active"
+            const tablinks = document.querySelectorAll(".tab-button");
+            tablinks.forEach(link => link.classList.remove("active"));
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+            // Re-trigger intersection observer for newly visible elements
+            triggerVisibleAnimations();
+        }
+        // --- Read More / Read Less Functionality ---
+        function toggleReadMore(button) {
+            const description = button.previousElementSibling;
+            description.classList.toggle('collapsed');
+            button.textContent = description.classList.contains('collapsed') ? 'Read More' : 'Read Less';
+        }
+        
+        // --- Animation on Scroll Logic ---
+        const sectionsToFadeIn = document.querySelectorAll('.fade-in-section');
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    
+                    // Animate skill bars if they are in the viewport
+                    if (entry.target.closest('#skills-section')) { 
+                        skillBars.forEach(bar => {
+                           setTimeout(() => {
+                               bar.style.width = bar.dataset.level;
+                           }, 200);
+                        });
+                    }
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+        
+        function triggerVisibleAnimations() {
+            sectionsToFadeIn.forEach(section => {
+                 // Check if the section is inside a visible tab before observing
+                if (section.offsetParent !== null) {
+                    observer.observe(section);
+                } else {
+                    observer.unobserve(section);
+                    section.classList.remove('is-visible');
+                }
+            });
+        }
+        
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+             // Set the first tab as active by default
+            document.querySelector('.tab-button').click();
+            triggerVisibleAnimations();
+        });
+    </script>
+</body>
+</html>
